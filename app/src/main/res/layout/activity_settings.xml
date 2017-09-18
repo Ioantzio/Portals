@@ -3,6 +3,8 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:layout_marginStart="10dp"
+              android:layout_marginEnd="10dp"
               android:gravity="center_horizontal"
               android:orientation="vertical"
               tools:context="com.ian.portals.activities.Settings">
@@ -12,10 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:onClick="musicOnClickEvent"
         android:checked="true"
+        android:onClick="musicOnClickEvent"
+        android:textOff="@string/music_off"
+        android:textOn="@string/music_on"
         android:text="@string/music"/>
 
     <ToggleButton
@@ -23,23 +25,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:onClick="soundsOnClickEvent"
         android:checked="true"
+        android:onClick="soundsOnClickEvent"
+        android:textOff="@string/sounds_off"
+        android:textOn="@string/sounds_on"
         android:text="@string/sounds"/>
 
     <TextView
         android:id="@+id/language"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="15dp"
         android:text="@string/language"
         android:textColor="@android:color/black"
         android:textSize="20sp"/>
-    
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -50,33 +50,84 @@
         android:id="@+id/languageRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
 
-    <RadioButton
-        android:id="@+id/language_english"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="languageEnglishOnClickEvent"
-        android:text="@string/language_english"/>
+        <RadioButton
+            android:id="@+id/language_english"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="languageEnglishOnClickEvent"
+            android:text="@string/language_english"/>
 
-    <RadioButton
-        android:id="@+id/language_greek"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="languageGreekOnClickEvent"
-        android:text="@string/language_greek"/>
+        <RadioButton
+            android:id="@+id/language_greek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="languageGreekOnClickEvent"
+            android:text="@string/language_greek"/>
     </RadioGroup>
-    
+
+    <TextView
+        android:id="@+id/answer_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/question_timeout"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"/>
+
+    <SeekBar
+        android:id="@+id/answer_time_tracker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:max="25"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3.0">
+
+        <TextView
+            android:id="@+id/answer_time_min"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:textAlignment="textStart"
+            android:text="5"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/answer_time_current"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:textAlignment="center"
+            android:text="5"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/answer_time_max"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:textAlignment="textEnd"
+            android:text="30"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
         android:onClick="backOnClickEvent"
         android:text="@string/back"/>
 

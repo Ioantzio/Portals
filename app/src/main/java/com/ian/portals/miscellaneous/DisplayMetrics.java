@@ -140,7 +140,7 @@ public class DisplayMetrics
             for(int j=0; j<heightTilesCount; j++)
             {
                 mTileCoordinates[i][j] = new Point();
-                mTileCoordinates[i][j].setDimentions(width, height);
+                mTileCoordinates[i][j].setDimensions(width, height);
 
                 height = height + tileHeight;
             }

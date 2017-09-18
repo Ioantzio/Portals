@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.ian.portals.activities.QuestionDialog">
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.19"
+        android:text="Question"/>
+
+    <ProgressBar
+        android:id="@+id/answer_time"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/answer_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:onClick="firstAnswerOnClickEvent"
+        android:text="Answer 1"/>
+
+    <Button
+        android:id="@+id/answer_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:onClick="secondAnswerOnClickEvent"
+        android:text="Answer 2"/>
+
+    <Button
+        android:id="@+id/answer_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:onClick="thirdAnswerOnClickEvent"
+        android:text="Answer 3"/>
+
+    <Button
+        android:id="@+id/answer_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.02"
+        android:onClick="fourthAnswerOnClickEvent"
+        android:text="Answer 4"/>
+</LinearLayout>

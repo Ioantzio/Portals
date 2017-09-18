@@ -1,11 +1,6 @@
 package com.ian.portals.activities;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,33 +8,24 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.ian.portals.R;
-import com.ian.portals.miscellaneous.DisplayMetrics;
-import com.ian.portals.miscellaneous.ImageSizeCalculator;
-import com.ian.portals.miscellaneous.RandomNumberGenerator;
-import com.ian.portals.models.Avatar;
-import com.ian.portals.models.Point;
+import com.ian.portals.conntrollers.MainController;
 
 public class Game extends AppCompatActivity
 {
-    private Avatar avatar;
+    //Controllers
+    private MainController mainController;
 
-    //Variables for dice roll
-    private RandomNumberGenerator randomNumberGenerator;
-    private static final int diceLowLimit = 1;
-    private static final int diceHighLimit = 6;
-    private static final int diceImageWidth = 72;
-    private static final int diceImageHeight = 72;
-
-    //Variables for map creation
-    private DisplayMetrics displayMetrics;
-    private Point[][] tileMap;
-    private static final int widthTilesCount = 6;
-    private static final int heightTilesCount = 8;
+    //Variables for activity views
+    private ImageView mapView;
+    private ImageView diceView;
 
     //Variables for method 'onBackPressed'
     private static final int waitTime = 2000;
     private long mBackPressed;
     private Toast mExitToast;
+
+    //Variables for startActivityForResult
+    private final static int REQUEST_CODE_OK = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,18 +33,18 @@ public class Game extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        avatar = new Avatar();
-        randomNumberGenerator = new RandomNumberGenerator();
-        displayMetrics = new DisplayMetrics(widthTilesCount, heightTilesCount);
-        tileMap = displayMetrics.getTileCoordinates();
+        initializeVariables();
+
+        mainController.getGameSession().setDiceRoll(1);
 
         drawMap();
+        drawDice();
     }
 
     @Override
     public void onBackPressed()
     {
-        if (mBackPressed + waitTime > System.currentTimeMillis())
+        if(mBackPressed + waitTime > System.currentTimeMillis())
         {
             mExitToast.cancel();
             finish();
@@ -73,181 +59,61 @@ public class Game extends AppCompatActivity
         mBackPressed = System.currentTimeMillis();
     }
 
+    private void initializeVariables()
+    {
+        mainController = new MainController(this);
+
+        mapView = (ImageView) findViewById(R.id.game);
+        diceView = (ImageView) findViewById(R.id.dice);
+    }
+
     private void drawMap()
     {
-        Paint paint;
-        Bitmap bitmap;
-        Canvas canvas;
-        Drawable tile;
-        Drawable player;
-        int tileImage;
-        int playerImage;
-        ImageSizeCalculator imageSizeCalculator;
-
-        imageSizeCalculator = new ImageSizeCalculator(widthTilesCount, heightTilesCount, displayMetrics.getDisplayWidth(), displayMetrics.getDisplayHeight());
-        tileImage = imageSizeCalculator.getTileImage();
-        playerImage = imageSizeCalculator.getPlayerImage();
-
-        bitmap = Bitmap.createBitmap(displayMetrics.getDisplayWidth(), displayMetrics.getDisplayHeight(), Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap);
-        paint = new Paint();
-
-        canvas.drawColor(Color.WHITE);
-        paint.setColor(Color.RED);
-        paint.setTextSize(20);
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-        {
-            tile = getResources().getDrawable(tileImage, null);
-            player = getResources().getDrawable(playerImage, null);
-        }
-        else
-        {
-            //noinspection deprecation
-            tile = getResources().getDrawable(tileImage);
-            //noinspection deprecation
-            player = getResources().getDrawable(playerImage);
-        }
-
-        //noinspection ForLoopReplaceableByForEach
-        for(int i=0; i<tileMap.length; i++)
-        {
-            for(int j=0; j<tileMap[i].length; j++)
-            {
-                tile.setBounds(
-                        tileMap[i][j].getWidth(),
-                        tileMap[i][j].getHeight(),
-                        tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
-                        tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
-                tile.draw(canvas);
-
-                canvas.drawText(String.valueOf(
-                        tileMap[i][j].getIndex()),
-                        tileMap[i][j].getWidth() + (displayMetrics.getTileWidth() / 4),
-                        tileMap[i][j].getHeight() + (displayMetrics.getTileHeight() / 4),
-                        paint);
-
-                if(tileMap[i][j].getIndex() == avatar.getPosition())
-                {
-                    avatar.setLocation(new Point(tileMap[i][j].getWidth(), tileMap[i][j].getHeight()));
-                }
-            }
-        }
-
-        player.setBounds(
-                avatar.getLocation().getWidth() + (displayMetrics.getTileWidth() / 3),
-                avatar.getLocation().getHeight() + (displayMetrics.getTileHeight() / 3),
-                avatar.getLocation().getWidth() + ((displayMetrics.getTileWidth()*3) / 4),
-                avatar.getLocation().getHeight() + ((displayMetrics.getTileHeight()*3) / 4));
-        player.draw(canvas);
-
-        setImageView((ImageView) findViewById(R.id.game), bitmap);
+        mapView.setImageBitmap(mainController.getGraphicsController().getMapToDraw());
     }
 
-    @SuppressWarnings("deprecation")
-    private void drawDice(int diceRoll)
+    private void drawDice()
     {
-        ImageView dice = (ImageView) findViewById(R.id.dice);
-        Drawable drawable;
-        Canvas canvas;
-        Bitmap bitmap;
+        diceView.setImageBitmap(mainController.getGraphicsController().getDiceToDraw());
+    }
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+    private void showVictoryScreen()
+    {
+        Toast.makeText(this, "You answered the final question. Victory!!", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if(requestCode == REQUEST_CODE_OK && resultCode == RESULT_OK)
         {
-            switch(diceRoll)
+            int result = mainController.getGameplayController().checkAnswer();
+
+            switch(result)
             {
+                case -1:
+                    Toast.makeText(this, "You answered wrong!!", Toast.LENGTH_SHORT).show();
+                    break;
+                case 0:
+                    drawMap();
+                    showVictoryScreen();
+                    break;
                 case 1:
-                    drawable = getResources().getDrawable(R.mipmap.dice_1, null);
-                    break;
-                case 2:
-                    drawable = getResources().getDrawable(R.mipmap.dice_2, null);
-                    break;
-                case 3:
-                    drawable = getResources().getDrawable(R.mipmap.dice_3, null);
-                    break;
-                case 4:
-                    drawable = getResources().getDrawable(R.mipmap.dice_4, null);
-                    break;
-                case 5:
-                    drawable = getResources().getDrawable(R.mipmap.dice_5, null);
-                    break;
-                case 6:
-                    drawable = getResources().getDrawable(R.mipmap.dice_6, null);
+                    Toast.makeText(this, "You answered correct!!", Toast.LENGTH_SHORT).show();
+                    drawMap();
                     break;
                 default:
-                    drawable = getResources().getDrawable(R.mipmap.dice_1, null);
+                    drawMap();
                     break;
             }
         }
-        else
-        {
-            switch(diceRoll)
-            {
-                case 1:
-                    drawable = getResources().getDrawable(R.mipmap.dice_1);
-                    break;
-                case 2:
-                    drawable = getResources().getDrawable(R.mipmap.dice_2);
-                    break;
-                case 3:
-                    drawable = getResources().getDrawable(R.mipmap.dice_3);
-                    break;
-                case 4:
-                    drawable = getResources().getDrawable(R.mipmap.dice_4);
-                    break;
-                case 5:
-                    drawable = getResources().getDrawable(R.mipmap.dice_5);
-                    break;
-                case 6:
-                    drawable = getResources().getDrawable(R.mipmap.dice_6);
-                    break;
-                default:
-                    drawable = getResources().getDrawable(R.mipmap.dice_1);
-                    break;
-            }
-        }
-
-        bitmap = Bitmap.createBitmap(diceImageWidth, diceImageHeight, Bitmap.Config.ARGB_8888);
-
-        canvas = new Canvas(bitmap);
-        canvas.drawColor(Color.WHITE);
-
-        drawable.setBounds(
-                dice.getWidth(),
-                dice.getHeight(),
-                dice.getWidth() + diceImageWidth,
-                dice.getHeight() + diceImageHeight);
-        drawable.draw(canvas);
-
-        setImageView((ImageView) findViewById(R.id.dice), bitmap);
-    }
-
-    private void setImageView(ImageView imageView, Bitmap bitmap)
-    {
-        imageView.setImageBitmap(bitmap);
-    }
-
-    private void movePlayer(int steps)
-    {
-        if((avatar.getPosition() + steps) <= (widthTilesCount*heightTilesCount))
-        {
-            avatar.move(steps);
-            drawMap();
-        }
-    }
-
-    private void rollDice()
-    {
-        int diceRoll;
-
-        diceRoll = randomNumberGenerator.generateNumber(diceLowLimit, diceHighLimit);
-
-        drawDice(diceRoll);
-        movePlayer(diceRoll);
     }
 
     public void playOnClickEvent(View view)
     {
-        rollDice();
+        mainController.getGameplayController().play();
+        drawDice();
+        startActivityForResult(new Intent(Game.this, QuestionDialog.class), REQUEST_CODE_OK);
     }
 }
