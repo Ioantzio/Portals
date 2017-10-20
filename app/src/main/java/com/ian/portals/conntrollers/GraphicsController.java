@@ -70,7 +70,6 @@ public class GraphicsController
         canvas = new Canvas(bitmap);
         paint = new Paint();
 
-        canvas.drawColor(Color.WHITE);
         paint.setColor(Color.RED);
         paint.setTextSize(20);
 
@@ -110,6 +109,14 @@ public class GraphicsController
                     avatar.setLastLocation(avatar.getLocation());
                     avatar.setLocation(new Point(tileMap[i][j].getWidth(), tileMap[i][j].getHeight()));
                 }
+
+                if(gameSession.getFreeTiles().contains(tileMap[i][j].getIndex()))
+                {
+                    canvas.drawText("*",
+                            tileMap[i][j].getWidth() + ((displayMetrics.getTileWidth() * 3) / 4),
+                            tileMap[i][j].getHeight() + (displayMetrics.getTileHeight() / 4),
+                            paint);
+                }
             }
         }
 
@@ -143,7 +150,6 @@ public class GraphicsController
         bitmap = Bitmap.createBitmap(dataController.getDiceImageWidth(), dataController.getDiceImageHeight(), Bitmap.Config.ARGB_8888);
 
         canvas = new Canvas(bitmap);
-        canvas.drawColor(Color.WHITE);
 
         drawable.setBounds(
                 0,

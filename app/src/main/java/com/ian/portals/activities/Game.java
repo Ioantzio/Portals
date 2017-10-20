@@ -114,6 +114,16 @@ public class Game extends AppCompatActivity
     {
         mainController.getGameplayController().play();
         drawDice();
-        startActivityForResult(new Intent(Game.this, QuestionDialog.class), REQUEST_CODE_OK);
+
+        if(mainController.getGameSession().isOnFreeTile())
+        {
+            Toast.makeText(this, "Hooray!! No questions on this tile!!", Toast.LENGTH_SHORT).show();
+            mainController.getGameSession().setOnFreeTile(false);
+            drawMap();
+        }
+        else
+        {
+            startActivityForResult(new Intent(Game.this, QuestionDialog.class), REQUEST_CODE_OK);
+        }
     }
 }

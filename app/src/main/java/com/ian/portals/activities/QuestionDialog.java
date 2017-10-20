@@ -56,7 +56,7 @@ public class QuestionDialog extends AppCompatActivity
 
     public void setupAnswerTimeProgressBar()
     {
-        final ProgressBar answerTimeTracker = (ProgressBar) findViewById(R.id.answer_time);
+        /*final ProgressBar answerTimeTracker = (ProgressBar) findViewById(R.id.answer_time);
         answerTimeTracker.setProgress(0);
 
         CountDownTimer cdt = new CountDownTimer(GlobalVariables.getAnswerTime() * 1000, 1000) {
@@ -69,7 +69,7 @@ public class QuestionDialog extends AppCompatActivity
                 finish();
             }
         };
-        cdt.start();
+        cdt.start();*/
     }
 
     public void firstAnswerOnClickEvent(View view)

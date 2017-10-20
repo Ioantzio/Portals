@@ -15,19 +15,13 @@
         android:layout_weight="0.19"
         android:text="Question"/>
 
-    <ProgressBar
-        android:id="@+id/answer_time"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
     <Button
         android:id="@+id/answer_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.02"
         android:onClick="firstAnswerOnClickEvent"
-        android:text="Answer 1"/>
+        android:text="Answer 1" />
 
     <Button
         android:id="@+id/answer_2"
@@ -43,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.02"
         android:onClick="thirdAnswerOnClickEvent"
-        android:text="Answer 3"/>
+        android:text="Answer 3" />
 
     <Button
         android:id="@+id/answer_4"
