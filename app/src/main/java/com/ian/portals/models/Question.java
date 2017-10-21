@@ -7,7 +7,7 @@ import android.os.Parcelable;
  * Created by Ian.
  */
 
-public class Question implements Parcelable
+public class Question
 {
     private String question;
     private String answer1;
@@ -18,12 +18,12 @@ public class Question implements Parcelable
 
     public Question(String question, String answer1, String answer2, String answer3, String answer4, int correctAnswer)
     {
-        this.question = question;
-        this.answer1 = answer1;
-        this.answer2 = answer2;
-        this.answer3 = answer3;
-        this.answer4 = answer4;
-        this.correctAnswer = correctAnswer;
+        setQuestion(question);
+        setAnswer1(answer1);
+        setAnswer2(answer2);
+        setAnswer3(answer3);
+        setAnswer4(answer4);
+        setCorrectAnswer(correctAnswer);
     }
 
     public String getQuestion()
@@ -85,46 +85,4 @@ public class Question implements Parcelable
     {
         this.correctAnswer = correctAnswer;
     }
-
-    //Start parcel implementation
-    public Question(Parcel in)
-    {
-        String[] data= new String[6];
-
-        in.readStringArray(data);
-        this.question = data[0];
-        this.answer1 = data[1];
-        this.answer2 = data[2];
-        this.answer3 = data[3];
-        this.answer4 = data[4];
-        this.correctAnswer = Integer.parseInt(data[5]);
-    }
-
-    @Override
-    public int describeContents()
-    {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags)
-    {
-        dest.writeStringArray(new String[]{this.question, this.answer1, this.answer2, this.answer3, this.answer4, String.valueOf(this.correctAnswer)});
-    }
-
-    public static final Parcelable.Creator<Question> CREATOR = new Parcelable.Creator<Question>()
-    {
-        @Override
-        public Question createFromParcel(Parcel source)
-        {
-            return new Question(source);
-        }
-
-        @Override
-        public Question[] newArray(int size)
-        {
-            return new Question[size];
-        }
-    };
-    //End parcel implementation
 }

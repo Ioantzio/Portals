@@ -9,10 +9,15 @@
 
     <!-- Settings -->
     <string name="music">Music</string>
+    <string name="music_off">Music: off</string>
+    <string name="music_on">Music: on</string>
     <string name="sounds">Sounds</string>
+    <string name="sounds_off">Sounds: off</string>
+    <string name="sounds_on">Sounds: on</string>
     <string name="language">Language</string>
     <string name="language_greek">Greek</string>
     <string name="language_english">English</string>
+    <string name="question_timeout">Answer time</string>
     <string name="back">Back</string>
 
     <!-- Connect -->
@@ -22,6 +27,7 @@
     <!-- Game -->
     <string name="play">Play</string>
     <string name="board">Board</string>
+    <string name="avatar">Avatar</string>
     <string name="dice">Dice</string>
 
     <!-- Errors -->

@@ -30,7 +30,7 @@ public class Point
         this.height = height;
     }
 
-    public void setDimentions(int width, int height)
+    public void setDimensions(int width, int height)
     {
         setWidth(width);
         setHeight(height);

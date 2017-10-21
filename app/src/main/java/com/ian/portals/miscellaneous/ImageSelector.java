@@ -7,7 +7,7 @@ import com.ian.portals.R.drawable;
  * Created by Ian.
  */
 
-public class ImageSizeCalculator
+public class ImageSelector
 {
     private int widthTilesCount;
     private int heightTilesCount;
@@ -17,18 +17,31 @@ public class ImageSizeCalculator
     private int playerImage;
     private int tileImage;
 
+    private HashMap<Integer, Integer> diceImages;
+    private HashMap<Integer, Integer> tileSizes;
+    private HashMap<Integer, Integer> playerSizes;
+
     /**
      * @param widthTilesCount No.tiles to be drawn horizontally
      * @param heightTilesCount No.tiles to be drawn vertically
      * @param screenWidth Available screen width to draw all horizontal tiles
      * @param screenHeight Available screen height to draw all vertical tiles
      */
-    public ImageSizeCalculator(int widthTilesCount, int heightTilesCount, int screenWidth, int screenHeight)
+    public ImageSelector(int widthTilesCount, int heightTilesCount, int screenWidth, int screenHeight)
     {
         setWidthTilesCount(widthTilesCount);
         setHeightTilesCount(heightTilesCount);
         setScreenWidth(screenWidth);
         setScreenHeight(screenHeight);
+
+        diceImages = new HashMap<>();
+        diceImages = new HashMap<>();
+        tileSizes = new HashMap<>();
+        playerSizes = new HashMap<>();
+
+        initializeDiceImages();
+        initializeTileImages();
+        initializePlayerImages();
 
         calculateSizes();
     }
@@ -73,14 +86,32 @@ public class ImageSizeCalculator
         this.screenHeight = screenHeight;
     }
 
-    public int getPlayerImage()
+    private void initializeDiceImages()
     {
-        return playerImage;
+        diceImages.put(1, drawable.dice_1_large);
+        diceImages.put(2, drawable.dice_2_large);
+        diceImages.put(3, drawable.dice_3_large);
+        diceImages.put(4, drawable.dice_4_large);
+        diceImages.put(5, drawable.dice_5_large);
+        diceImages.put(6, drawable.dice_6_large);
     }
 
-    private void setPlayerImage(int playerImage)
+    public int getDiceImage(int diceRoll)
     {
-        this.playerImage = playerImage;
+        return diceImages.get(diceRoll);
+    }
+
+    private void initializeTileImages()
+    {
+        tileSizes.put(10, drawable.tile_xx_small);
+        tileSizes.put(20, drawable.tile_x_small);
+        tileSizes.put(30, drawable.tile_small);
+        tileSizes.put(40, drawable.tile_medium_small);
+        tileSizes.put(50, drawable.tile_medium);
+        tileSizes.put(60, drawable.tile_medium_large);
+        tileSizes.put(70, drawable.tile_large);
+        tileSizes.put(80, drawable.tile_x_large);
+        tileSizes.put(90, drawable.tile_xx_large);
     }
 
     public int getTileImage()
@@ -93,25 +124,8 @@ public class ImageSizeCalculator
         this.tileImage = tileImage;
     }
 
-    private HashMap<Integer, Integer> getTileSizes()
+    private void initializePlayerImages()
     {
-        HashMap<Integer, Integer> tileSizes = new HashMap<>();
-        tileSizes.put(10, drawable.tile_xx_small);
-        tileSizes.put(20, drawable.tile_x_small);
-        tileSizes.put(30, drawable.tile_small);
-        tileSizes.put(40, drawable.tile_medium_small);
-        tileSizes.put(50, drawable.tile_medium);
-        tileSizes.put(60, drawable.tile_medium_large);
-        tileSizes.put(70, drawable.tile_large);
-        tileSizes.put(80, drawable.tile_x_large);
-        tileSizes.put(90, drawable.tile_xx_large);
-
-        return tileSizes;
-    }
-
-    private HashMap<Integer, Integer> getPlayerSizes()
-    {
-        HashMap<Integer, Integer> playerSizes = new HashMap<>();
         playerSizes.put(10, drawable.player_xx_small);
         playerSizes.put(20, drawable.player_x_small);
         playerSizes.put(30, drawable.player_small);
@@ -121,8 +135,16 @@ public class ImageSizeCalculator
         playerSizes.put(70, drawable.player_large);
         playerSizes.put(80, drawable.player_x_large);
         playerSizes.put(90, drawable.player_xx_large);
+    }
 
-        return playerSizes;
+    public int getPlayerImage()
+    {
+        return playerImage;
+    }
+
+    private void setPlayerImage(int playerImage)
+    {
+        this.playerImage = playerImage;
     }
 
     @SuppressWarnings("RedundantCast")
@@ -130,11 +152,12 @@ public class ImageSizeCalculator
     {
         int width;
         int height;
-        HashMap<Integer, Integer> tileSizes = getTileSizes();
-        HashMap<Integer, Integer> playerSizes = getPlayerSizes();
 
         width = (int) (getScreenWidth() / getWidthTilesCount());
         height = (int) (getScreenHeight() / getHeightTilesCount());
+
+        setTileImage(tileSizes.get(50));
+        setPlayerImage(playerSizes.get(50));
 
         for(int i=1; i<=tileSizes.size(); i++)
         {
@@ -144,7 +167,5 @@ public class ImageSizeCalculator
                 setPlayerImage(playerSizes.get(i*10));
             }
         }
-        setTileImage(tileSizes.get(50));
-        setPlayerImage(playerSizes.get(50));
     }
 }
