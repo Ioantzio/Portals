@@ -1,7 +1,5 @@
 package com.ian.portals.conntrollers;
 
-import android.content.Context;
-
 import com.ian.portals.data.GameSession;
 import com.ian.portals.data.GlobalVariables;
 import com.ian.portals.miscellaneous.RandomNumberGenerator;
@@ -12,15 +10,12 @@ import com.ian.portals.miscellaneous.RandomNumberGenerator;
 
 public class GameplayController
 {
-    private Context gameContext;
     private GameSession gameSession;
     private DataController dataController;
-    private int result;
     private boolean isFinalQuestion;
 
     public GameplayController(MainController mainController)
     {
-        gameContext = mainController.getContext();
         gameSession = mainController.getGameSession();
         dataController = mainController.getDataController();
     }
@@ -31,7 +26,16 @@ public class GameplayController
 
         diceRoll = rollDice();
         gameSession.setDiceRoll(diceRoll);
-        setQuestion(diceRoll);
+
+        if(gameSession.getFreeTiles().contains(gameSession.getAvatar().getPosition() + diceRoll))
+        {
+            gameSession.setOnFreeTile(true);
+            gameSession.getAvatar().move(diceRoll);
+        }
+        else
+        {
+            setQuestion(diceRoll);
+        }
     }
 
     private int rollDice()
@@ -60,6 +64,8 @@ public class GameplayController
 
     public int checkAnswer()
     {
+        int result;
+
         if(GlobalVariables.getAnswer() == GlobalVariables.getCurrentQuestion().getCorrectAnswer())
         {
             gameSession.getAvatar().move(gameSession.getDiceRoll());

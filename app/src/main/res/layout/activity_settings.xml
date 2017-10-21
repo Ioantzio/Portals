@@ -1,50 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:layout_marginStart="10dp"
-              android:layout_marginEnd="10dp"
-              android:gravity="center_horizontal"
-              android:orientation="vertical"
-              tools:context="com.ian.portals.activities.Settings">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.ian.portals.activities.Settings">
 
     <ToggleButton
         android:id="@+id/music"
+        android:background="@color/colorComponent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:checked="true"
         android:onClick="musicOnClickEvent"
+        android:text="@string/music"
         android:textOff="@string/music_off"
-        android:textOn="@string/music_on"
-        android:text="@string/music"/>
+        android:textOn="@string/music_on" />
 
     <ToggleButton
         android:id="@+id/sounds"
+        android:background="@color/colorComponent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:checked="true"
         android:onClick="soundsOnClickEvent"
+        android:text="@string/sounds"
         android:textOff="@string/sounds_off"
-        android:textOn="@string/sounds_on"
-        android:text="@string/sounds"/>
+        android:textOn="@string/sounds_on" />
 
     <TextView
         android:id="@+id/language"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="@string/language"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"/>
+        android:textColor="@color/colorLabelText"
+        android:textSize="20sp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginTop="5dp"
-        android:background="@color/black"/>
+        android:background="@color/white" />
 
     <RadioGroup
         android:id="@+id/languageRadioGroup"
@@ -55,33 +57,37 @@
 
         <RadioButton
             android:id="@+id/language_english"
+            android:background="@color/colorComponent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="languageEnglishOnClickEvent"
-            android:text="@string/language_english"/>
+            android:text="@string/language_english" />
 
         <RadioButton
             android:id="@+id/language_greek"
+            android:background="@color/colorComponent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
             android:onClick="languageGreekOnClickEvent"
-            android:text="@string/language_greek"/>
+            android:text="@string/language_greek" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/answer_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:text="@string/question_timeout"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"/>
+        android:textColor="@color/colorLabelText"
+        android:textSize="20sp" />
 
     <SeekBar
         android:id="@+id/answer_time_tracker"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorComponent"
         android:max="25"/>
 
     <LinearLayout
@@ -96,30 +102,30 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:textAlignment="textStart"
             android:text="5"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"/>
+            android:textAlignment="textStart"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/answer_time_current"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:textAlignment="center"
             android:text="5"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"/>
+            android:textAlignment="center"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/answer_time_max"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"
-            android:textAlignment="textEnd"
             android:text="30"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"/>
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -127,8 +133,8 @@
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:onClick="backOnClickEvent"
-        android:text="@string/back"/>
+        android:text="@string/back" />
 
 </LinearLayout>

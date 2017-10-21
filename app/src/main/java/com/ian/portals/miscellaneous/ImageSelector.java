@@ -88,12 +88,12 @@ public class ImageSelector
 
     private void initializeDiceImages()
     {
-        diceImages.put(1, drawable.dice_1_large);
-        diceImages.put(2, drawable.dice_2_large);
-        diceImages.put(3, drawable.dice_3_large);
-        diceImages.put(4, drawable.dice_4_large);
-        diceImages.put(5, drawable.dice_5_large);
-        diceImages.put(6, drawable.dice_6_large);
+        diceImages.put(1, drawable.dice_1);
+        diceImages.put(2, drawable.dice_2);
+        diceImages.put(3, drawable.dice_3);
+        diceImages.put(4, drawable.dice_4);
+        diceImages.put(5, drawable.dice_5);
+        diceImages.put(6, drawable.dice_6);
     }
 
     public int getDiceImage(int diceRoll)
@@ -126,15 +126,15 @@ public class ImageSelector
 
     private void initializePlayerImages()
     {
-        playerSizes.put(10, drawable.player_xx_small);
-        playerSizes.put(20, drawable.player_x_small);
-        playerSizes.put(30, drawable.player_small);
-        playerSizes.put(40, drawable.player_medium_small);
-        playerSizes.put(50, drawable.player_medium);
-        playerSizes.put(60, drawable.player_medium_large);
-        playerSizes.put(70, drawable.player_large);
-        playerSizes.put(80, drawable.player_x_large);
-        playerSizes.put(90, drawable.player_xx_large);
+        playerSizes.put(10, drawable.player_xx_small_cyan);
+        playerSizes.put(20, drawable.player_x_small_cyan);
+        playerSizes.put(30, drawable.player_small_cyan);
+        playerSizes.put(40, drawable.player_medium_small_cyan);
+        playerSizes.put(50, drawable.player_medium_cyan);
+        playerSizes.put(60, drawable.player_medium_large_cyan);
+        playerSizes.put(70, drawable.player_large_cyan);
+        playerSizes.put(80, drawable.player_x_large_cyan);
+        playerSizes.put(90, drawable.player_xx_large_cyan);
     }
 
     public int getPlayerImage()

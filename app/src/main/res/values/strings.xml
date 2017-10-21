@@ -4,6 +4,8 @@
     <!-- Menu -->
     <string name="playGame">Play game</string>
     <string name="settings">Settings</string>
+    <string name="preferences">Preferences</string>
+    <string name="update">Update</string>
     <string name="connect">Connect</string>
     <string name="exit">Exit</string>
 
@@ -19,6 +21,10 @@
     <string name="language_english">English</string>
     <string name="question_timeout">Answer time</string>
     <string name="back">Back</string>
+
+    <!-- Preferences -->
+    <string name="category">Category</string>
+    <string name="level">Grade</string>
 
     <!-- Connect -->
     <string name="login">Login</string>

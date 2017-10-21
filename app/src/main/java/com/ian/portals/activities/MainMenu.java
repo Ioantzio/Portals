@@ -18,6 +18,14 @@ public class MainMenu extends AppCompatActivity
         setContentView(R.layout.activity_main_menu);
     }
 
+    @Override
+    protected void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
+
     public void playOnClickEvent(View view)
     {
         startActivity(new Intent(MainMenu.this, Game.class));
@@ -26,6 +34,17 @@ public class MainMenu extends AppCompatActivity
     public void settingsOnClickEvent(View view)
     {
         startActivity(new Intent(MainMenu.this, Settings.class));
+    }
+
+    public void preferencesOnClickEvent(View view)
+    {
+        startActivity(new Intent(MainMenu.this, Preferences.class));
+    }
+
+    public void updateOnClickEvent(View view)
+    {
+        //TODO: preferences activity
+        Toast.makeText(this, "Update is not implemented yet.", Toast.LENGTH_SHORT).show();
     }
 
     public void connectOnClickEvent(View view)
