@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Portals</string>
+
+    <!-- Menu -->
+    <string name="playGame">Παίξε</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="preferences">Προτιμήσεις</string>
+    <string name="update">Ενημέρωση</string>
+    <string name="connect">Σύνδεση</string>
+    <string name="exit">Έξοδος</string>
+
+    <!-- Settings -->
+    <string name="music">Μουσική</string>
+    <string name="music_off">Μουσική: off</string>
+    <string name="music_on">Μουσική: on</string>
+    <string name="sounds">Ήχοι</string>
+    <string name="sounds_off">Ήχοι: off</string>
+    <string name="sounds_on">Ήχοι: on</string>
+    <string name="language">Γλώσσα</string>
+    <string name="language_greek">Ελληνικά</string>
+    <string name="language_english">Αγγλικά</string>
+    <string name="question_timeout">Χρόνος απάντησης</string>
+    <string name="back">Πίσω</string>
+
+    <!-- Preferences -->
+    <string name="category">Θεματική Ενότητα</string>
+    <string name="level">Τάξη</string>
+
+    <!-- Connect -->
+    <string name="login">Σύνδεση</string>
+    <string name="register">Εγγραφή</string>
+
+    <!-- Game -->
+    <string name="play">Παίξε</string>
+    <string name="board">Χάρτης</string>
+    <string name="avatar">Παίκτης</string>
+    <string name="dice">Ζάρι</string>
+
+    <!-- Errors -->
+    <string name="error_field_required">Απαραίτητο πεδίο</string>
+</resources>

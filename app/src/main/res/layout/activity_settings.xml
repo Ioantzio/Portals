@@ -84,11 +84,11 @@
 
     <SeekBar
         android:id="@+id/answer_time_tracker"
-        android:background="@color/colorComponent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginTop="10dp"
-        android:max="25" />
+        android:background="@color/colorComponent"
+        android:max="25"/>
 
     <LinearLayout
         android:layout_width="match_parent"

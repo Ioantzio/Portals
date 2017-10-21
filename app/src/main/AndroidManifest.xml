@@ -9,18 +9,37 @@
         android:roundIcon="@mipmap/ic_launcher_portals_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainMenu">
+        <activity
+            android:name=".activities.MainMenu"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.Settings">
+        <activity
+            android:name=".activities.Settings"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activities.Game">
+        <activity
+            android:name=".activities.Game"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activities.QuestionDialog" android:theme="@style/Theme.AppCompat.Dialog.Alert" android:excludeFromRecents="true">
+        <activity
+            android:name=".activities.QuestionDialog"
+            android:configChanges="orientation"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert">
+        </activity>
+        <activity
+            android:name=".activities.Preferences"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 
