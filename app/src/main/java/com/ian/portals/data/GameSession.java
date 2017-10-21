@@ -24,8 +24,9 @@ public class GameSession
     //Variables: Player
     private Avatar avatar;
 
-    //Variables: Dice
+    //Variables: Game
     private int diceRoll;
+    private boolean playerTurn = true;
 
     public GameSession()
     {
@@ -80,7 +81,7 @@ public class GameSession
         this.avatar = avatar;
     }
 
-    //Methods: Dice
+    //Methods: Game
     public int getDiceRoll()
     {
         return diceRoll;
@@ -89,5 +90,15 @@ public class GameSession
     public void setDiceRoll(int diceRoll)
     {
         this.diceRoll = diceRoll;
+    }
+
+    public boolean isPlayerTurn()
+    {
+        return playerTurn;
+    }
+
+    public void setPlayerTurn(boolean playerTurn)
+    {
+        this.playerTurn = playerTurn;
     }
 }

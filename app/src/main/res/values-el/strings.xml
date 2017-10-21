@@ -3,6 +3,7 @@
 
     <!-- Menu -->
     <string name="playGame">Παίξε</string>
+    <string name="playGameVsComputer">Παίξε με τον υπολογιστή</string>
     <string name="settings">Ρυθμίσεις</string>
     <string name="preferences">Προτιμήσεις</string>
     <string name="update">Ενημέρωση</string>
@@ -24,7 +25,20 @@
 
     <!-- Preferences -->
     <string name="category">Θεματική Ενότητα</string>
-    <string name="level">Τάξη</string>
+    <string-array name="categories">
+        <item name="mathematics">Μαθηματικά</item>
+        <item name="geography">Γεωγραφία</item>
+        <item name="history">Ιστορία</item>
+    </string-array>
+    <string name="grade">Τάξη</string>
+    <string-array name="grades">
+        <item name="1st grade">1η τάξη</item>
+        <item name="2nd grade">2α τάξη</item>
+        <item name="3rd grade">3η τάξη</item>
+        <item name="4th grade">4η τάξη</item>
+        <item name="5th grade">5η τάξη</item>
+        <item name="6th grade">6η τάξη</item>
+    </string-array>
 
     <!-- Connect -->
     <string name="login">Σύνδεση</string>

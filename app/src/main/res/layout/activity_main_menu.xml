@@ -18,6 +18,22 @@
         android:text="@string/playGame" />
 
     <Button
+        android:id="@+id/play_vs_computer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:onClick="playVsComputerOnClickEvent"
+        android:text="@string/playGameVsComputer" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white" />
+
+    <Button
         android:id="@+id/settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,6 +52,12 @@
         android:layout_marginTop="15dp"
         android:onClick="preferencesOnClickEvent"
         android:text="@string/preferences" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white" />
 
     <Button
         android:id="@+id/update"
@@ -56,6 +78,12 @@
         android:layout_marginTop="15dp"
         android:onClick="connectOnClickEvent"
         android:text="@string/connect" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="15dp"
+        android:background="@color/white" />
 
     <Button
         android:id="@+id/exit"

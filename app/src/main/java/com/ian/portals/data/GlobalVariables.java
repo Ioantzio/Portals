@@ -1,6 +1,5 @@
 package com.ian.portals.data;
 
-import com.ian.portals.conntrollers.MainController;
 import com.ian.portals.models.Question;
 
 /**
@@ -14,6 +13,11 @@ public class GlobalVariables
     private static boolean soundsActivated = true;
     private static Language language = Language.english;
     private static int answerTime = 15;
+
+    //Variables: Preferences
+    private static int category = 0;
+    private static int grade = 0;
+    private static int gameType = 0;
 
     //Variables: Questions
     private static Question currentQuestion;
@@ -68,6 +72,42 @@ public class GlobalVariables
     public static void setAnswerTimeFromSeekbar(int answerTime)
     {
         GlobalVariables.answerTime = answerTime + 5;
+    }
+
+    //Methods: Preferences
+    public static int getCategory()
+    {
+        return category;
+    }
+
+    public static void setCategory(int category)
+    {
+        GlobalVariables.category = category;
+    }
+
+    public static int getGrade()
+    {
+        return grade;
+    }
+
+    public static void setGrade(int grade)
+    {
+        GlobalVariables.grade = grade;
+    }
+
+    /**
+     * @return Returns the type of game selected
+     * 0 = single player
+     * 1 = multiplayer vs computer
+     */
+    public static int getGameType()
+    {
+        return gameType;
+    }
+
+    public static void setGameType(int gameType)
+    {
+        GlobalVariables.gameType = gameType;
     }
 
     //Methods: Questions

@@ -53,7 +53,7 @@ public class Game extends AppCompatActivity
         }
         else
         {
-            mExitToast = Toast.makeText(getBaseContext(), "Tap again to exit", Toast.LENGTH_SHORT);
+            mExitToast = Toast.makeText(getBaseContext(), R.string.TEXT_exit, Toast.LENGTH_SHORT);
             mExitToast.show();
         }
         mBackPressed = System.currentTimeMillis();
@@ -79,7 +79,7 @@ public class Game extends AppCompatActivity
 
     private void showVictoryScreen()
     {
-        Toast.makeText(this, "You answered the final question. Victory!!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.TEXT_victory, Toast.LENGTH_LONG).show();
         finish();
     }
 
@@ -93,14 +93,14 @@ public class Game extends AppCompatActivity
             switch(result)
             {
                 case -1:
-                    Toast.makeText(this, "You answered wrong!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.TEXT_wrongAnswer, Toast.LENGTH_SHORT).show();
                     break;
                 case 0:
                     drawMap();
                     showVictoryScreen();
                     break;
                 case 1:
-                    Toast.makeText(this, "You answered correct!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.TEXT_correctAnswer, Toast.LENGTH_SHORT).show();
                     drawMap();
                     break;
                 default:
@@ -117,7 +117,7 @@ public class Game extends AppCompatActivity
 
         if(mainController.getGameSession().isOnFreeTile())
         {
-            Toast.makeText(this, "Hooray!! No questions on this tile!!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.TEXT_freeTile, Toast.LENGTH_SHORT).show();
             mainController.getGameSession().setOnFreeTile(false);
             drawMap();
         }
