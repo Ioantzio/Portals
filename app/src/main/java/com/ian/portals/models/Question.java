@@ -1,8 +1,5 @@
 package com.ian.portals.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 /**
  * Created by Ian.
  */

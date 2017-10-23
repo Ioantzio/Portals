@@ -14,9 +14,10 @@ import java.util.ArrayList;
 public class GameSession
 {
     //Variables: Questions
-    private MockQuestions mockQuestions;
+    private MockQuestions questions;
 
     //Variables: Tiles
+    @SuppressWarnings("FieldCanBeLocal")
     private NonQuestionTiles nonQuestionTiles;
     private boolean isOnFreeTile;
     private ArrayList<Integer> freeTiles;
@@ -35,7 +36,7 @@ public class GameSession
 
     private void initializeVariables()
     {
-        mockQuestions = new MockQuestions();
+        questions = new MockQuestions();
         nonQuestionTiles = new NonQuestionTiles();
         freeTiles = nonQuestionTiles.getFreeTiles();
         avatar = new Avatar();
@@ -46,12 +47,12 @@ public class GameSession
     //Methods: Questions
     public ArrayList<Question> getQuestions()
     {
-        return mockQuestions.getQuestions();
+        return questions.getQuestions();
     }
 
     public Question getFinalQuestion()
     {
-        return mockQuestions.getFinalQuestion();
+        return questions.getFinalQuestion();
     }
 
     //Methods: Tiles

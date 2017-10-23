@@ -29,14 +29,14 @@ public class DisplayMetrics
      */
     public DisplayMetrics(int widthTilesCount, int heightTilesCount)
     {
-        this.widthTilesCount = widthTilesCount;
-        this.heightTilesCount = heightTilesCount;
+        setWidthTilesCount(widthTilesCount);
+        setHeightTilesCount(heightTilesCount);
 
-        this.offsetX = 2;
-        this.offsetY = 2;
+        setOffsetX(2);
+        setOffsetY(2);
 
-        this.tileWidth = 50;
-        this.tileHeight = 50;
+        setTileWidth(50);
+        setTileWidth(50);
     }
 
     public int getTileWidth()
@@ -115,7 +115,7 @@ public class DisplayMetrics
     @SuppressWarnings("RedundantCast")
     public Point[][] getTileCoordinates()
     {
-        Point[][] mTileCoordinates = new Point[widthTilesCount][heightTilesCount];
+        Point[][] mTileCoordinates = new Point[getWidthTilesCount()][getHeightTilesCount()];
 
         int width, height;
         int tileCount;
@@ -124,33 +124,33 @@ public class DisplayMetrics
         displayWidth = getDisplayWidth();
         displayHeight = getDisplayHeight();
 
-        setTileWidth((int) ((displayWidth - widthTilesCount + 1) / widthTilesCount));
-        setTileHeight((int) ((displayHeight - heightTilesCount + 1) / heightTilesCount));
+        setTileWidth((int) ((displayWidth - getWidthTilesCount() + 1) / getWidthTilesCount()));
+        setTileHeight((int) ((displayHeight - getHeightTilesCount() + 1) / getHeightTilesCount()));
 
-        setOffsetX((displayWidth - (tileWidth * widthTilesCount)) / 2);
-        setOffsetY((displayHeight - (tileHeight * heightTilesCount)) / 2);
+        setOffsetX((displayWidth - (getTileWidth() * getWidthTilesCount())) / 2);
+        setOffsetY((displayHeight - (getTileHeight() * getHeightTilesCount())) / 2);
 
         width = getOffsetX();
         height = getOffsetY();
 
         tileCount = 1;
 
-        for(int i=0; i<widthTilesCount; i++)
+        for(int i=0; i<getWidthTilesCount(); i++)
         {
-            for(int j=0; j<heightTilesCount; j++)
+            for(int j=0; j<getHeightTilesCount(); j++)
             {
                 mTileCoordinates[i][j] = new Point();
                 mTileCoordinates[i][j].setDimensions(width, height);
 
-                height = height + tileHeight;
+                height = height + getTileHeight();
             }
-            width = width + tileWidth + 1;
+            width = width + getTileWidth() + 1;
             height = getOffsetY();
         }
 
-        for(int j=heightTilesCount; j>0; j--)
+        for(int j=getHeightTilesCount(); j>0; j--)
         {
-            for(int i=0; i<widthTilesCount; i++)
+            for(int i=0; i<getWidthTilesCount(); i++)
             {
                 if(j%2 == 0)
                 {
@@ -158,7 +158,7 @@ public class DisplayMetrics
                 }
                 else
                 {
-                    mTileCoordinates[widthTilesCount-i-1][j-1].setIndex(tileCount);
+                    mTileCoordinates[getWidthTilesCount()-i-1][j-1].setIndex(tileCount);
                 }
                 tileCount++;
             }

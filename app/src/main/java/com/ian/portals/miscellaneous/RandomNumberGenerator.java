@@ -20,7 +20,7 @@ public class RandomNumberGenerator
         }
         else
         {
-            Random rand = new Random();
+            Random rand = new Random(System.currentTimeMillis());
             return rand.nextInt((highLimit - lowLimit) + 1) + lowLimit;
         }
     }

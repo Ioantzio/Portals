@@ -1,10 +1,5 @@
 package com.ian.portals.conntrollers;
 
-import com.ian.portals.mock.MockQuestions;
-import com.ian.portals.models.Question;
-
-import java.util.ArrayList;
-
 /**
  * Created by Ian.
  */
