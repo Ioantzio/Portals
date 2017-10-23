@@ -14,9 +14,9 @@ public class Question
     private String answer2;
     private String answer3;
     private String answer4;
-    private int correctAnswer;
+    private String correctAnswer;
 
-    public Question(String question, String answer1, String answer2, String answer3, String answer4, int correctAnswer)
+    public Question(String question, String answer1, String answer2, String answer3, String answer4, String correctAnswer)
     {
         setQuestion(question);
         setAnswer1(answer1);
@@ -76,12 +76,12 @@ public class Question
         this.answer4 = answer4;
     }
 
-    public int getCorrectAnswer()
+    public String getCorrectAnswer()
     {
         return correctAnswer;
     }
 
-    public void setCorrectAnswer(int correctAnswer)
+    public void setCorrectAnswer(String correctAnswer)
     {
         this.correctAnswer = correctAnswer;
     }

@@ -21,7 +21,7 @@ public class GlobalVariables
 
     //Variables: Questions
     private static Question currentQuestion;
-    private static int answer;
+    private static String answer;
 
     //Methods: Settings
     public static boolean isMusicActivated()
@@ -121,12 +121,12 @@ public class GlobalVariables
         GlobalVariables.currentQuestion = currentQuestion;
     }
 
-    public static int getAnswer()
+    public static String getAnswer()
     {
         return answer;
     }
 
-    public static void setAnswer(int answer)
+    public static void setAnswer(String answer)
     {
         GlobalVariables.answer = answer;
     }

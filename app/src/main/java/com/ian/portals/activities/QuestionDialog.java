@@ -47,7 +47,7 @@ public class QuestionDialog extends AppCompatActivity
         mAnswer4.setText(question.getAnswer4());
     }
 
-    private void returnAnswer(int answer)
+    private void returnAnswer(String answer)
     {
         GlobalVariables.setAnswer(answer);
         setResult(RESULT_OK);
@@ -74,21 +74,21 @@ public class QuestionDialog extends AppCompatActivity
 
     public void firstAnswerOnClickEvent(View view)
     {
-        returnAnswer(1);
+        returnAnswer(mAnswer1.getText().toString());
     }
 
     public void secondAnswerOnClickEvent(View view)
     {
-        returnAnswer(2);
+        returnAnswer(mAnswer2.getText().toString());
     }
 
     public void thirdAnswerOnClickEvent(View view)
     {
-        returnAnswer(3);
+        returnAnswer(mAnswer3.getText().toString());
     }
 
     public void fourthAnswerOnClickEvent(View view)
     {
-        returnAnswer(4);
+        returnAnswer(mAnswer4.getText().toString());
     }
 }
