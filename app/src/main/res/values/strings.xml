@@ -52,6 +52,7 @@
 
     <!-- Miscellaneous -->
     <string name="error_field_required">This field is required</string>
+    <string name="TODO_VsComputer">Play VS Computer is not implemented yet.</string>
     <string name="TODO_Update">Update is not implemented yet.</string>
     <string name="TODO_Connect">Login/register not implemented yet.</string>
     <string name="TEXT_exit">Tap again to exit</string>

@@ -25,13 +25,13 @@ public class NonQuestionTiles
         int freeTile;
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-        rand = randomNumberGenerator.generateNumber(1, dataController.getWidthTilesCount() - 1);
+        rand = randomNumberGenerator.generateNumber(1, dataController.getWidthTilesCount() - 1, false);
         freeTile = rand;
         freeTiles.add(freeTile);
 
         for(int count = 1; count < dataController.getHeightTilesCount(); count++)
         {
-            rand = randomNumberGenerator.generateNumber(1, dataController.getWidthTilesCount());
+            rand = randomNumberGenerator.generateNumber(1, dataController.getWidthTilesCount(), false);
             freeTile = count*dataController.getWidthTilesCount() + rand;
             freeTiles.add(freeTile);
         }

@@ -35,8 +35,10 @@ public class MainMenu extends AppCompatActivity
 
     public void playVsComputerOnClickEvent(View view)
     {
+        //TODO: play vs Computer activity
         GlobalVariables.setGameType(1);
-        startActivity(new Intent(MainMenu.this, Game.class));
+//        startActivity(new Intent(MainMenu.this, Game.class));
+        Toast.makeText(this, R.string.TODO_VsComputer, Toast.LENGTH_SHORT).show();
     }
 
     public void settingsOnClickEvent(View view)
@@ -51,7 +53,7 @@ public class MainMenu extends AppCompatActivity
 
     public void updateOnClickEvent(View view)
     {
-        //TODO: preferences activity
+        //TODO: update activity
         Toast.makeText(this, R.string.TODO_Update, Toast.LENGTH_SHORT).show();
     }
 

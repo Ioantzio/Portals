@@ -50,6 +50,14 @@
     <string name="avatar">Παίκτης</string>
     <string name="dice">Ζάρι</string>
 
-    <!-- Errors -->
+    <!-- Miscellaneous -->
     <string name="error_field_required">Απαραίτητο πεδίο</string>
+    <string name="TODO_VsComputer">"Παίξε με τον υπολογιστή" δεν έχει υλοποιηθεί ακόμα</string>
+    <string name="TODO_Update">"Ενημέρωση" δεν έχει υλοποιηθεί ακόμα</string>
+    <string name="TODO_Connect">"Σύνδεση/εγγραφή" δεν έχει υλοποιηθεί ακόμα</string>
+    <string name="TEXT_exit">Πατήστε ξανά για να βγείτε</string>
+    <string name="TEXT_victory">Νίκη</string>
+    <string name="TEXT_correctAnswer">Απαντήσατε σωστά!!</string>
+    <string name="TEXT_wrongAnswer">Απαντήσατε λάθος!!</string>
+    <string name="TEXT_freeTile">Σούπερ!! Δεν υπάρχει ερώτηση σε αυτό το κουτάκι!!</string>
 </resources>

@@ -5,6 +5,7 @@
     <color name="colorAccent">#ee0000</color>
 
     <color name="colorBackground">#113366</color>
+    <color name="colorBackgroundGame">#223344</color>
     <color name="colorComponent">@color/cyan</color>
     <color name="colorLabelText">@color/white</color>
 
