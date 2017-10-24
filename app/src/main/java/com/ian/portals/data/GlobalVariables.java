@@ -12,6 +12,7 @@ public class GlobalVariables
     private static boolean musicActivated = true;
     private static boolean soundsActivated = true;
     private static Language language = Language.english;
+    private static String languagePrefix = "-en";
     private static int answerTime = 15;
 
     //Variables: Preferences
@@ -42,6 +43,16 @@ public class GlobalVariables
     public static void setSoundsActivated(boolean soundsActivated)
     {
         GlobalVariables.soundsActivated = soundsActivated;
+    }
+
+    public static String getLanguagePrefix()
+    {
+        return languagePrefix;
+    }
+
+    public static void setLanguagePrefix(String languagePrefix)
+    {
+        GlobalVariables.languagePrefix = languagePrefix;
     }
 
     public static Language getLanguage()

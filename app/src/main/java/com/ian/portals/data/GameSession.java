@@ -1,23 +1,28 @@
 package com.ian.portals.data;
 
+import android.content.Context;
+
+import com.ian.portals.conntrollers.MainController;
 import com.ian.portals.miscellaneous.NonQuestionTiles;
 import com.ian.portals.mock.MockQuestions;
 import com.ian.portals.models.Avatar;
 import com.ian.portals.models.Question;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Ian.
  */
 
+@SuppressWarnings("FieldCanBeLocal")
 public class GameSession
 {
     //Variables: Questions
-    private MockQuestions questions;
+    private ReadQuestionsFromFile readQuestionsFromFile;
+    private ArrayList<Question> questions;
 
     //Variables: Tiles
-    @SuppressWarnings("FieldCanBeLocal")
     private NonQuestionTiles nonQuestionTiles;
     private boolean isOnFreeTile;
     private ArrayList<Integer> freeTiles;
@@ -29,30 +34,38 @@ public class GameSession
     private int diceRoll;
     private boolean playerTurn = true;
 
-    public GameSession()
+    public GameSession(MainController mainController)
     {
-        initializeVariables();
+        initializeVariables(mainController.getContext());
     }
 
-    private void initializeVariables()
+    private void initializeVariables(Context context)
     {
-        questions = new MockQuestions();
+        readQuestionsFromFile = new ReadQuestionsFromFile(context);
+        questions = readQuestionsFromFile.getQuestions();
         nonQuestionTiles = new NonQuestionTiles();
         freeTiles = nonQuestionTiles.getFreeTiles();
         avatar = new Avatar();
         diceRoll = 1;
         isOnFreeTile = false;
+
+        randomizeQuestionOrder();
     }
 
     //Methods: Questions
     public ArrayList<Question> getQuestions()
     {
-        return questions.getQuestions();
+        return questions;
     }
 
     public Question getFinalQuestion()
     {
-        return questions.getFinalQuestion();
+        return readQuestionsFromFile.getFinalQuestion();
+    }
+
+    private void randomizeQuestionOrder()
+    {
+        Collections.shuffle(questions);
     }
 
     //Methods: Tiles

@@ -78,12 +78,14 @@ public class Settings extends AppCompatActivity
     public void languageEnglishOnClickEvent(View view)
     {
         GlobalVariables.setLanguage(Language.english);
+        GlobalVariables.setLanguagePrefix("-en");
         updateLocale("en");
     }
 
     public void languageGreekOnClickEvent(View view)
     {
         GlobalVariables.setLanguage(Language.greek);
+        GlobalVariables.setLanguagePrefix("-el");
         updateLocale("el");
     }
 

@@ -5,10 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ian.portals.R;
 import com.ian.portals.data.GlobalVariables;
 import com.ian.portals.models.Question;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class QuestionDialog extends AppCompatActivity
 {
@@ -21,10 +25,17 @@ public class QuestionDialog extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_dialog);
 
+        this.setFinishOnTouchOutside(false);
         initializeVariables();
 
         setupQuestion(GlobalVariables.getCurrentQuestion());
         setupAnswerTimeProgressBar();
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        Toast.makeText(this, R.string.ERROR_backPressedOnQuestionDialog, Toast.LENGTH_SHORT).show();
     }
 
     private void initializeVariables()
@@ -39,10 +50,19 @@ public class QuestionDialog extends AppCompatActivity
     private void setupQuestion(Question question)
     {
         mQuestion.setText(question.getQuestion());
-        mAnswer1.setText(question.getAnswer1());
-        mAnswer2.setText(question.getAnswer2());
-        mAnswer3.setText(question.getAnswer3());
-        mAnswer4.setText(question.getAnswer4());
+
+        ArrayList<String> answerShuffler = new ArrayList<>();
+
+        answerShuffler.add(question.getAnswer1());
+        answerShuffler.add(question.getAnswer2());
+        answerShuffler.add(question.getAnswer3());
+        answerShuffler.add(question.getAnswer4());
+        Collections.shuffle(answerShuffler);
+
+        mAnswer1.setText(answerShuffler.get(0));
+        mAnswer2.setText(answerShuffler.get(1));
+        mAnswer3.setText(answerShuffler.get(2));
+        mAnswer4.setText(answerShuffler.get(3));
     }
 
     private void returnAnswer(String answer)
