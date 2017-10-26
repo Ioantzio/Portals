@@ -15,6 +15,12 @@
         android:layout_weight="0.19"
         android:text="Question"/>
 
+    <ProgressBar
+        android:id="@+id/answer_time"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/answer_1"
         android:layout_width="match_parent"

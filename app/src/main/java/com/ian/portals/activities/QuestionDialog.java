@@ -1,9 +1,13 @@
 package com.ian.portals.activities;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +22,10 @@ public class QuestionDialog extends AppCompatActivity
 {
     TextView mQuestion;
     Button mAnswer1, mAnswer2, mAnswer3, mAnswer4;
+
+    //Variables: progress bar
+    ProgressBar answerTimeTracker;
+    CountDownTimer cdt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -74,20 +82,31 @@ public class QuestionDialog extends AppCompatActivity
 
     public void setupAnswerTimeProgressBar()
     {
-        /*final ProgressBar answerTimeTracker = (ProgressBar) findViewById(R.id.answer_time);
-        answerTimeTracker.setProgress(0);
+        answerTimeTracker = (ProgressBar) findViewById(R.id.answer_time);
+        answerTimeTracker.setMax(GlobalVariables.getAnswerTime() * 1000);
+        answerTimeTracker.setProgress(GlobalVariables.getAnswerTime() * 1000);
 
-        CountDownTimer cdt = new CountDownTimer(GlobalVariables.getAnswerTime() * 1000, 1000) {
-
-            public void onTick(long millisUntilFinished) {
-                answerTimeTracker.setProgress((int) (GlobalVariables.getAnswerTime() * 1000 - millisUntilFinished));
+        cdt = new CountDownTimer(GlobalVariables.getAnswerTime() * 1000, 1000)
+        {
+            public void onTick(long millisUntilFinished)
+            {
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                {
+                    answerTimeTracker.setProgress((int) (millisUntilFinished - 1000), true);
+                }
+                else
+                {
+                    answerTimeTracker.setProgress((int) (millisUntilFinished - 1000));
+                }
             }
 
-            public void onFinish() {
+            public void onFinish()
+            {
+                answerTimeTracker.setProgress(0);
                 finish();
             }
         };
-        cdt.start();*/
+        cdt.start();
     }
 
     public void firstAnswerOnClickEvent(View view)
