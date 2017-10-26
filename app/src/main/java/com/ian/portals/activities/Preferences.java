@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.ian.portals.R;
 import com.ian.portals.data.GlobalVariables;
@@ -23,11 +25,11 @@ public class Preferences extends AppCompatActivity
 
         initializeVariables();
         updatePreferences();
+        answerTimeOnSeekBarChangeEvent(findViewById(R.id.answer_time_tracker));
     }
 
     private void initializeVariables()
     {
-        //TODO: Preferences lost when changing language
         Spinner category = (Spinner) findViewById(R.id.category);
         categoryAdapter = ArrayAdapter.createFromResource(this, R.array.categories, android.R.layout.simple_spinner_item);
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -74,6 +76,40 @@ public class Preferences extends AppCompatActivity
 
         Spinner grade = (Spinner) findViewById(R.id.grade);
         grade.setSelection(GlobalVariables.getGrade());
+
+        SeekBar answerTime = (SeekBar) findViewById(R.id.answer_time_tracker);
+        TextView answerTimeCurrent = (TextView) findViewById(R.id.answer_time_current);
+        answerTime.setProgress(GlobalVariables.getAnswerTimeForSeekbar());
+        answerTimeCurrent.setText(String.valueOf(GlobalVariables.getAnswerTime()));
+    }
+
+    public void answerTimeOnSeekBarChangeEvent(View view)
+    {
+        SeekBar answerTime = (SeekBar) findViewById(R.id.answer_time_tracker);
+
+        answerTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
+        {
+            TextView answerTimeCurrent = (TextView) findViewById(R.id.answer_time_current);
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
+            {
+                GlobalVariables.setAnswerTimeFromSeekbar(progress);
+                answerTimeCurrent.setText(String.valueOf(GlobalVariables.getAnswerTime()));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar)
+            {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar)
+            {
+
+            }
+        });
     }
 
     public void backOnClickEvent(View view)

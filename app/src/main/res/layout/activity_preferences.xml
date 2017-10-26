@@ -51,6 +51,62 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"/>
 
+    <TextView
+        android:id="@+id/answer_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/question_timeout"
+        android:textColor="@color/colorLabelText"
+        android:textSize="20sp" />
+
+    <SeekBar
+        android:id="@+id/answer_time_tracker"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorComponent"
+        android:max="25"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3.0">
+
+        <TextView
+            android:id="@+id/answer_time_min"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="5"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/answer_time_current"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="5"
+            android:textAlignment="center"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/answer_time_max"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="30"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/back"
         android:layout_width="match_parent"

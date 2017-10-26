@@ -1,25 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginEnd="10dp"
-    android:layout_marginStart="10dp"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    tools:context="com.ian.portals.activities.Settings">
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_marginEnd="10dp"
+              android:layout_marginStart="10dp"
+              android:gravity="center_horizontal"
+              tools:context="com.ian.portals.activities.Settings"
+              android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/black" />
 
     <ToggleButton
         android:id="@+id/music"
         android:background="@color/colorComponent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:checked="true"
         android:onClick="musicOnClickEvent"
         android:text="@string/music"
         android:textOff="@string/music_off"
         android:textOn="@string/music_on" />
+
+    <SeekBar
+        android:id="@+id/music_volume_tracker"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorComponent"
+        android:max="100"
+        android:progress="100"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3.0">
+
+        <TextView
+            android:id="@+id/music_volume_min"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="0"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/music_volume_current"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="100"
+            android:textAlignment="center"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/music_volume_max"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="100"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/black" />
 
     <ToggleButton
         android:id="@+id/sounds"
@@ -32,6 +92,60 @@
         android:text="@string/sounds"
         android:textOff="@string/sounds_off"
         android:textOn="@string/sounds_on" />
+
+    <SeekBar
+        android:id="@+id/sounds_volume_tracker"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorComponent"
+        android:max="100"
+        android:progress="100"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3.0">
+
+        <TextView
+            android:id="@+id/sounds_volume_min"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="0"
+            android:textAlignment="textStart"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/sounds_volume_current"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="100"
+            android:textAlignment="center"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/sounds_volume_max"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:text="100"
+            android:textAlignment="textEnd"
+            android:textColor="@color/colorLabelText"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/black" />
 
     <TextView
         android:id="@+id/language"
@@ -73,68 +187,12 @@
             android:text="@string/language_greek" />
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/answer_time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/question_timeout"
-        android:textColor="@color/colorLabelText"
-        android:textSize="20sp" />
-
-    <SeekBar
-        android:id="@+id/answer_time_tracker"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorComponent"
-        android:max="25"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:weightSum="3.0">
-
-        <TextView
-            android:id="@+id/answer_time_min"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:text="5"
-            android:textAlignment="textStart"
-            android:textColor="@color/colorLabelText"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/answer_time_current"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:text="5"
-            android:textAlignment="center"
-            android:textColor="@color/colorLabelText"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/answer_time_max"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:text="30"
-            android:textAlignment="textEnd"
-            android:textColor="@color/colorLabelText"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
     <Button
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:onClick="backOnClickEvent"
-        android:text="@string/back" />
+        android:text="@string/back"/>
 
 </LinearLayout>
