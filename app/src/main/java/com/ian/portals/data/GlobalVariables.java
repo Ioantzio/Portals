@@ -10,9 +10,7 @@ public class GlobalVariables
 {
     //Variables: Settings
     private static boolean musicActivated = true;
-    private static int musicVolume = 100;
     private static boolean soundsActivated = true;
-    private static int soundsVolume = 100;
     private static Language language = Language.english;
     private static String languagePrefix = "-en";
 
@@ -36,14 +34,6 @@ public class GlobalVariables
     {
         GlobalVariables.musicActivated = musicActivated;
     }
-
-    public static int getMusicVolume(){return musicVolume;}
-
-    public static void setMusicVolume(int musicVolume){GlobalVariables.musicVolume = musicVolume;}
-
-    public static int getSoundsVolume(){return soundsVolume;}
-
-    public static void setSoundsVolume(int soundsVolume){GlobalVariables.soundsVolume = soundsVolume;}
 
     public static boolean isSoundsActivated()
     {

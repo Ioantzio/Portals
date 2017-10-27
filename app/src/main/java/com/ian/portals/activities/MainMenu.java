@@ -1,8 +1,8 @@
 package com.ian.portals.activities;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -11,6 +11,10 @@ import com.ian.portals.data.GlobalVariables;
 
 public class MainMenu extends AppCompatActivity
 {
+    //Variables for method 'onBackPressed'
+    private static final int waitTime = 2000;
+    private long mBackPressed;
+    private Toast mExitToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,6 +29,22 @@ public class MainMenu extends AppCompatActivity
         super.onRestart();
         finish();
         startActivity(getIntent());
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        if(mBackPressed + waitTime > System.currentTimeMillis())
+        {
+            mExitToast.cancel();
+            exitOnClickEvent(null);
+        }
+        else
+        {
+            mExitToast = Toast.makeText(getBaseContext(), R.string.TEXT_exit, Toast.LENGTH_SHORT);
+            mExitToast.show();
+        }
+        mBackPressed = System.currentTimeMillis();
     }
 
     public void playOnClickEvent(View view)

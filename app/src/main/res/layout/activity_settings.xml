@@ -27,60 +27,6 @@
         android:textOff="@string/music_off"
         android:textOn="@string/music_on" />
 
-    <SeekBar
-        android:id="@+id/music_volume_tracker"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorComponent"
-        android:max="100"
-        android:progress="100"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:weightSum="3.0">
-
-        <TextView
-            android:id="@+id/music_volume_min"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:text="0"
-            android:textAlignment="textStart"
-            android:textColor="@color/colorLabelText"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/music_volume_current"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:text="100"
-            android:textAlignment="center"
-            android:textColor="@color/colorLabelText"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/music_volume_max"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:text="100"
-            android:textAlignment="textEnd"
-            android:textColor="@color/colorLabelText"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="5dp"
-        android:background="@color/black" />
-
     <ToggleButton
         android:id="@+id/sounds"
         android:background="@color/colorComponent"
@@ -93,58 +39,10 @@
         android:textOff="@string/sounds_off"
         android:textOn="@string/sounds_on" />
 
-    <SeekBar
-        android:id="@+id/sounds_volume_tracker"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorComponent"
-        android:max="100"
-        android:progress="100"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:weightSum="3.0">
-
-        <TextView
-            android:id="@+id/sounds_volume_min"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:text="0"
-            android:textAlignment="textStart"
-            android:textColor="@color/colorLabelText"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/sounds_volume_current"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:text="100"
-            android:textAlignment="center"
-            android:textColor="@color/colorLabelText"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/sounds_volume_max"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.0"
-            android:text="100"
-            android:textAlignment="textEnd"
-            android:textColor="@color/colorLabelText"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:background="@color/black" />
 
     <TextView
@@ -187,11 +85,17 @@
             android:text="@string/language_greek" />
     </RadioGroup>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/black" />
+
     <Button
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
         android:onClick="backOnClickEvent"
         android:text="@string/back"/>
 
