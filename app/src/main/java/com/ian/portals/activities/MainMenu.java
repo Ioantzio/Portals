@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.ian.portals.R;
+import com.ian.portals.data.GlobalVariables;
 
 public class MainMenu extends AppCompatActivity
 {
@@ -28,7 +29,16 @@ public class MainMenu extends AppCompatActivity
 
     public void playOnClickEvent(View view)
     {
+        GlobalVariables.setGameType(0);
         startActivity(new Intent(MainMenu.this, Game.class));
+    }
+
+    public void playVsComputerOnClickEvent(View view)
+    {
+        //TODO: play vs Computer activity
+        GlobalVariables.setGameType(1);
+//        startActivity(new Intent(MainMenu.this, Game.class));
+        Toast.makeText(this, R.string.TODO_VsComputer, Toast.LENGTH_SHORT).show();
     }
 
     public void settingsOnClickEvent(View view)
@@ -43,14 +53,14 @@ public class MainMenu extends AppCompatActivity
 
     public void updateOnClickEvent(View view)
     {
-        //TODO: preferences activity
-        Toast.makeText(this, "Update is not implemented yet.", Toast.LENGTH_SHORT).show();
+        //TODO: update activity
+        Toast.makeText(this, R.string.TODO_Update, Toast.LENGTH_SHORT).show();
     }
 
     public void connectOnClickEvent(View view)
     {
         //TODO: login & register activities
-        Toast.makeText(this, "Login & register not implemented yet.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.TODO_Connect, Toast.LENGTH_SHORT).show();
     }
 
     public void exitOnClickEvent(View view)

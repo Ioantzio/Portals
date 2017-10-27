@@ -1,6 +1,7 @@
 package com.ian.portals.activities;
 
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -93,7 +94,7 @@ public class Settings extends AppCompatActivity
         Locale locale = new Locale(language);
 
         configuration.setLocale(locale);
-        getResources().updateConfiguration(configuration, getResources().getSystem().getDisplayMetrics());
+        getResources().updateConfiguration(configuration, Resources.getSystem().getDisplayMetrics());
     }
 
     public void answerTimeOnSeekBarChangeEvent(View view)

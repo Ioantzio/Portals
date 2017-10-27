@@ -43,7 +43,7 @@ public class GameplayController
         int diceRoll;
 
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
-        diceRoll = randomNumberGenerator.generateNumber(dataController.getDiceLowLimit(), dataController.getDiceHighLimit());
+        diceRoll = randomNumberGenerator.generateNumber(dataController.getDiceLowLimit(), dataController.getDiceHighLimit(), true);
 
         return diceRoll;
     }
@@ -66,7 +66,7 @@ public class GameplayController
     {
         int result;
 
-        if(GlobalVariables.getAnswer() == GlobalVariables.getCurrentQuestion().getCorrectAnswer())
+        if(GlobalVariables.getAnswer().equals(GlobalVariables.getCurrentQuestion().getCorrectAnswer()))
         {
             gameSession.getAvatar().move(gameSession.getDiceRoll());
             if(isFinalQuestion)

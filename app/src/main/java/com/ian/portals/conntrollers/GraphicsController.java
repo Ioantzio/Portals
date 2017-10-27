@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 
+import com.ian.portals.R;
 import com.ian.portals.data.GameSession;
 import com.ian.portals.miscellaneous.DisplayMetrics;
 import com.ian.portals.miscellaneous.ImageSelector;
@@ -33,8 +34,6 @@ public class GraphicsController
 
     //Variables for component's images
     private ImageSelector imageSelector;
-    private int tileImage;
-    private int playerImage;
 
 
     public GraphicsController(MainController mainController)
@@ -53,37 +52,40 @@ public class GraphicsController
         displayMetrics = new DisplayMetrics(dataController.getWidthTilesCount(), dataController.getHeightTilesCount());
         tileMap = displayMetrics.getTileCoordinates();
 
-        imageSelector = new ImageSelector(dataController.getWidthTilesCount(), dataController.getHeightTilesCount(), displayMetrics.getDisplayWidth(), displayMetrics.getDisplayHeight());
-        tileImage = imageSelector.getTileImage();
-        playerImage = imageSelector.getPlayerImage();
+        imageSelector = new ImageSelector();
     }
 
+    @SuppressWarnings("deprecation")
     public Bitmap getMapToDraw()
     {
         Paint paint;
         Bitmap bitmap;
         Canvas canvas;
         Drawable player;
-        Drawable tile;
+        Drawable tileBlue, tileGreen, tileBlueFree, tileGreenFree;
 
         bitmap = Bitmap.createBitmap(displayMetrics.getDisplayWidth(), displayMetrics.getDisplayHeight(), Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap);
         paint = new Paint();
 
-        paint.setColor(Color.RED);
+        paint.setColor(Color.rgb(240, 140, 0));
         paint.setTextSize(20);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
         {
-            tile = context.getResources().getDrawable(tileImage, null);
-            player = context.getResources().getDrawable(playerImage, null);
+            tileBlue = context.getResources().getDrawable(R.drawable.tile_blue, null);
+            tileGreen = context.getResources().getDrawable(R.drawable.tile_green, null);
+            tileBlueFree = context.getResources().getDrawable(R.drawable.tile_blue_free, null);
+            tileGreenFree = context.getResources().getDrawable(R.drawable.tile_green_free, null);
+            player = context.getResources().getDrawable(R.drawable.player_cyan, null);
         }
         else
         {
-            //noinspection deprecation
-            tile = context.getResources().getDrawable(tileImage);
-            //noinspection deprecation
-            player = context.getResources().getDrawable(playerImage);
+            tileBlue = context.getResources().getDrawable(R.drawable.tile_blue);
+            tileGreen = context.getResources().getDrawable(R.drawable.tile_green);
+            tileBlueFree = context.getResources().getDrawable(R.drawable.tile_blue_free);
+            tileGreenFree = context.getResources().getDrawable(R.drawable.tile_green_free);
+            player = context.getResources().getDrawable(R.drawable.player_cyan);
         }
 
         //noinspection ForLoopReplaceableByForEach
@@ -91,16 +93,52 @@ public class GraphicsController
         {
             for(int j = 0; j < tileMap[i].length; j++)
             {
-                tile.setBounds(
-                        tileMap[i][j].getWidth(),
-                        tileMap[i][j].getHeight(),
-                        tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
-                        tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
-                tile.draw(canvas);
+                if(tileMap[i][j].getIndex()%2 == 0)
+                {
+                    if(gameSession.getFreeTiles().contains(tileMap[i][j].getIndex()))
+                    {
+                        tileGreenFree.setBounds(
+                                tileMap[i][j].getWidth(),
+                                tileMap[i][j].getHeight(),
+                                tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
+                                tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
+                        tileGreenFree.draw(canvas);
+                    }
+                    else
+                    {
+                        tileGreen.setBounds(
+                                tileMap[i][j].getWidth(),
+                                tileMap[i][j].getHeight(),
+                                tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
+                                tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
+                        tileGreen.draw(canvas);
+                    }
+                }
+                else
+                {
+                    if(gameSession.getFreeTiles().contains(tileMap[i][j].getIndex()))
+                    {
+                        tileBlueFree.setBounds(
+                                tileMap[i][j].getWidth(),
+                                tileMap[i][j].getHeight(),
+                                tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
+                                tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
+                        tileBlueFree.draw(canvas);
+                    }
+                    else
+                    {
+                        tileBlue.setBounds(
+                                tileMap[i][j].getWidth(),
+                                tileMap[i][j].getHeight(),
+                                tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
+                                tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
+                        tileBlue.draw(canvas);
+                    }
+                }
 
                 canvas.drawText(String.valueOf(
                         tileMap[i][j].getIndex()),
-                        tileMap[i][j].getWidth() + (displayMetrics.getTileWidth() / 4),
+                        tileMap[i][j].getWidth() + (displayMetrics.getTileWidth() / 7),
                         tileMap[i][j].getHeight() + (displayMetrics.getTileHeight() / 4),
                         paint);
 
@@ -121,9 +159,9 @@ public class GraphicsController
         }
 
         player.setBounds(
-                avatar.getLocation().getWidth() + (displayMetrics.getTileWidth() / 3),
+                avatar.getLocation().getWidth() + (displayMetrics.getTileWidth() * 4/ 15),
                 avatar.getLocation().getHeight() + (displayMetrics.getTileHeight() / 3),
-                avatar.getLocation().getWidth() + ((displayMetrics.getTileWidth() * 3) / 4),
+                avatar.getLocation().getWidth() + ((displayMetrics.getTileWidth() * 11) / 15),
                 avatar.getLocation().getHeight() + ((displayMetrics.getTileHeight() * 3) / 4));
 
         player.draw(canvas);

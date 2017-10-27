@@ -10,7 +10,7 @@
               tools:context="com.ian.portals.activities.Preferences">
 
     <TextView
-        android:id="@+id/category"
+        android:id="@+id/category_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -18,30 +18,44 @@
         android:textColor="@color/colorLabelText"
         android:textSize="20sp" />
 
-    <Spinner
-        android:id="@+id/spinner"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white" />
+
+    <Spinner
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
 
     <TextView
-        android:id="@+id/level"
+        android:id="@+id/grade_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/level"
+        android:text="@string/grade"
         android:textColor="@color/colorLabelText"
         android:textSize="20sp" />
 
-    <Spinner
-        android:id="@+id/spinner2"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="2dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/white" />
+
+    <Spinner
+        android:id="@+id/grade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
 
     <Button
         android:id="@+id/back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:onClick="backOnClickEvent"
         android:text="@string/back"/>
 </LinearLayout>

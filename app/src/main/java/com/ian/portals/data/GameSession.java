@@ -14,9 +14,10 @@ import java.util.ArrayList;
 public class GameSession
 {
     //Variables: Questions
-    private MockQuestions mockQuestions;
+    private MockQuestions questions;
 
     //Variables: Tiles
+    @SuppressWarnings("FieldCanBeLocal")
     private NonQuestionTiles nonQuestionTiles;
     private boolean isOnFreeTile;
     private ArrayList<Integer> freeTiles;
@@ -24,8 +25,9 @@ public class GameSession
     //Variables: Player
     private Avatar avatar;
 
-    //Variables: Dice
+    //Variables: Game
     private int diceRoll;
+    private boolean playerTurn = true;
 
     public GameSession()
     {
@@ -34,7 +36,7 @@ public class GameSession
 
     private void initializeVariables()
     {
-        mockQuestions = new MockQuestions();
+        questions = new MockQuestions();
         nonQuestionTiles = new NonQuestionTiles();
         freeTiles = nonQuestionTiles.getFreeTiles();
         avatar = new Avatar();
@@ -45,12 +47,12 @@ public class GameSession
     //Methods: Questions
     public ArrayList<Question> getQuestions()
     {
-        return mockQuestions.getQuestions();
+        return questions.getQuestions();
     }
 
     public Question getFinalQuestion()
     {
-        return mockQuestions.getFinalQuestion();
+        return questions.getFinalQuestion();
     }
 
     //Methods: Tiles
@@ -80,7 +82,7 @@ public class GameSession
         this.avatar = avatar;
     }
 
-    //Methods: Dice
+    //Methods: Game
     public int getDiceRoll()
     {
         return diceRoll;
@@ -89,5 +91,15 @@ public class GameSession
     public void setDiceRoll(int diceRoll)
     {
         this.diceRoll = diceRoll;
+    }
+
+    public boolean isPlayerTurn()
+    {
+        return playerTurn;
+    }
+
+    public void setPlayerTurn(boolean playerTurn)
+    {
+        this.playerTurn = playerTurn;
     }
 }
