@@ -12,12 +12,13 @@ public class GlobalVariables
     private static boolean musicActivated = true;
     private static boolean soundsActivated = true;
     private static Language language = Language.english;
-    private static int answerTime = 15;
+    private static String languagePrefix = "-en";
 
     //Variables: Preferences
     private static int category = 0;
     private static int grade = 0;
     private static int gameType = 0;
+    private static int answerTime = 15;
 
     //Variables: Questions
     private static Question currentQuestion;
@@ -44,6 +45,16 @@ public class GlobalVariables
         GlobalVariables.soundsActivated = soundsActivated;
     }
 
+    public static String getLanguagePrefix()
+    {
+        return languagePrefix;
+    }
+
+    public static void setLanguagePrefix(String languagePrefix)
+    {
+        GlobalVariables.languagePrefix = languagePrefix;
+    }
+
     public static Language getLanguage()
     {
         return language;
@@ -52,26 +63,6 @@ public class GlobalVariables
     public static void setLanguage(Language language)
     {
         GlobalVariables.language = language;
-    }
-
-    public static int getAnswerTime()
-    {
-        return answerTime;
-    }
-
-    public static void setAnswerTime(int answerTime)
-    {
-        GlobalVariables.answerTime = answerTime;
-    }
-
-    public static int getAnswerTimeForSeekbar()
-    {
-        return (answerTime - 5);
-    }
-
-    public static void setAnswerTimeFromSeekbar(int answerTime)
-    {
-        GlobalVariables.answerTime = answerTime + 5;
     }
 
     //Methods: Preferences
@@ -108,6 +99,26 @@ public class GlobalVariables
     public static void setGameType(int gameType)
     {
         GlobalVariables.gameType = gameType;
+    }
+
+    public static int getAnswerTime()
+    {
+        return answerTime;
+    }
+
+    public static void setAnswerTime(int answerTime)
+    {
+        GlobalVariables.answerTime = answerTime;
+    }
+
+    public static int getAnswerTimeForSeekbar()
+    {
+        return (answerTime - 5);
+    }
+
+    public static void setAnswerTimeFromSeekbar(int answerTime)
+    {
+        GlobalVariables.answerTime = answerTime + 5;
     }
 
     //Methods: Questions

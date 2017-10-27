@@ -1,0 +1,10 @@
+{
+  "questions": [
+    {
+      "question" : "Το αποτέλεσμα του 499-399+299-199+99 είναι:", "answer1" : "0", "answer2" : "99", "answer3" : "299", "answer4" : "499", "correctAnswer" : "299"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 123+111+321 είναι:", "answer1" : "343", "answer2" : "434", "answer3" : "555", "answer4" : "454", "correctAnswer" : "555"
+    }
+  ]
+}

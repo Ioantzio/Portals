@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "question" : "Το αποτέλεσμα του 5x8 είναι", "answer1" : "10", "answer2" : "30", "answer3" : "40", "answer4" : "48", "correctAnswer" : "40"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 123-34 είναι", "answer1" : "89", "answer2" : "79", "answer3" : "81", "answer4" : "99", "correctAnswer" : "89"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 72:12 είναι", "answer1" : "6", "answer2" : "5", "answer3" : "7", "answer4" : "8", "correctAnswer" : "6"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 895-396 είναι", "answer1" : "399", "answer2" : "449", "answer3" : "499", "answer4" : "549", "correctAnswer" : "499"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 13+19 είναι", "answer1" : "28", "answer2" : "31", "answer3" : "32", "answer4" : "34", "correctAnswer" : "32"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 38-17 είναι", "answer1" : "16", "answer2" : "21", "answer3" : "22", "answer4" : "19", "correctAnswer" : "21"
+    },
+    {
+      "question" : "Το υπόλοιπο του 19:4 είναι", "answer1" : "1", "answer2" : "2", "answer3" : "3", "answer4" : "0", "correctAnswer" : "3"
+    },
+    {
+      "question" : "Το πηλίκο του of 10:3 είναι", "answer1" : "0", "answer2" : "1", "answer3" : "2", "answer4" : "3", "correctAnswer" : "3"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 45+135 είναι", "answer1" : "180", "answer2" : "170", "answer3" : "160", "answer4" : "190", "correctAnswer" : "180"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 8x12 είναι", "answer1" : "88", "answer2" : "96", "answer3" : "98", "answer4" : "106", "correctAnswer" : "96"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 14+38 είναι", "answer1" : "52", "answer2" : "54", "answer3" : "56", "answer4" : "58", "correctAnswer" : "52"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 14x9 είναι", "answer1" : "116", "answer2" : "122", "answer3" : "126", "answer4" : "132", "correctAnswer" : "126"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 144:12 είναι", "answer1" : "6", "answer2" : "8", "answer3" : "10", "answer4" : "12", "correctAnswer" : "12"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 39+14 είναι", "answer1" : "43", "answer2" : "46", "answer3" : "49", "answer4" : "53", "correctAnswer" : "53"
+    },
+    {
+      "question" : "Το πηλίκο του of 40:14 είναι", "answer1" : "3", "answer2" : "2", "answer3" : "4", "answer4" : "5", "correctAnswer" : "2"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 999-449 είναι", "answer1" : "400", "answer2" : "450", "answer3" : "500", "answer4" : "550", "correctAnswer" : "550"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 123+456 είναι", "answer1" : "499", "answer2" : "559", "answer3" : "579", "answer4" : "599", "correctAnswer" : "579"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 1.000:100 είναι", "answer1" : "1", "answer2" : "10", "answer3" : "11", "answer4" : "100", "correctAnswer" : "10"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 99+99-98 είναι", "answer1" : "100", "answer2" : "101", "answer3" : "198", "answer4" : "199", "correctAnswer" : "100"
+    },
+    {
+      "question" : "Το πηλίκο του of 125:5 είναι", "answer1" : "20", "answer2" : "25", "answer3" : "35", "answer4" : "50", "correctAnswer" : "25"
+    },
+    {
+      "question" : "Το υπόλοιπο του 15:3 είναι", "answer1" : "0", "answer2" : "1", "answer3" : "2", "answer4" : "3", "correctAnswer" : "0"
+    },
+    {
+      "question" : "Το πηλίκο του of 64:4 είναι", "answer1" : "8", "answer2" : "14", "answer3" : "16", "answer4" : "25", "correctAnswer" : "16"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 17-38 είναι", "answer1" : "-16", "answer2" : "-21", "answer3" : "-24", "answer4" : "-27", "correctAnswer" : "-21"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 39+62 είναι", "answer1" : "91", "answer2" : "92", "answer3" : "100", "answer4" : "101", "correctAnswer" : "101"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 11x8 είναι", "answer1" : "48", "answer2" : "80", "answer3" : "88", "answer4" : "98", "correctAnswer" : "88"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 55+55 είναι", "answer1" : "100", "answer2" : "105", "answer3" : "110", "answer4" : "125", "correctAnswer" : "110"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 10-3x2 είναι", "answer1" : "14", "answer2" : "24", "answer3" : "4", "answer4" : "6", "correctAnswer" : "4"
+    },
+    {
+      "question" : "Το πηλίκο του of 25:4 είναι", "answer1" : "4", "answer2" : "6", "answer3" : "7", "answer4" : "8", "correctAnswer" : "6"
+    },
+    {
+      "question" : "Το υπόλοιπο του 22:5 είναι", "answer1" : "0", "answer2" : "2", "answer3" : "4", "answer4" : "5", "correctAnswer" : "2"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 96-37 είναι", "answer1" : "49", "answer2" : "59", "answer3" : "69", "answer4" : "71", "correctAnswer" : "59"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 9x9 είναι", "answer1" : "79", "answer2" : "81", "answer3" : "84", "answer4" : "89", "correctAnswer" : "81"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 12+23 είναι", "answer1" : "24", "answer2" : "31", "answer3" : "34", "answer4" : "35", "correctAnswer" : "35"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 23-12 είναι", "answer1" : "9", "answer2" : "10", "answer3" : "11", "answer4" : "12", "correctAnswer" : "11"
+    },
+    {
+      "question" : "Το πηλίκο του of 28:9 είναι", "answer1" : "2", "answer2" : "3", "answer3" : "4", "answer4" : "5", "correctAnswer" : "3"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 6x6 είναι", "answer1" : "26", "answer2" : "30", "answer3" : "32", "answer4" : "36", "correctAnswer" : "36"
+    },
+    {
+      "question" : "Το υπόλοιπο του 33:6 είναι", "answer1" : "0", "answer2" : "1", "answer3" : "2", "answer4" : "3", "correctAnswer" : "3"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 16+22 είναι", "answer1" : "38", "answer2" : "44", "answer3" : "46", "answer4" : "52", "correctAnswer" : "38"
+    },
+    {
+      "question" : "Το υπόλοιπο του 49:7 είναι", "answer1" : "0", "answer2" : "1", "answer3" : "3", "answer4" : "4", "correctAnswer" : "0"
+    },
+    {
+      "question" : "Το πηλίκο του of 100:100 είναι", "answer1" : "0", "answer2" : "1", "answer3" : "10", "answer4" : "11", "correctAnswer" : "1"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 10+101 είναι", "answer1" : "109", "answer2" : "110", "answer3" : "111", "answer4" : "121", "correctAnswer" : "111"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 27x2 είναι", "answer1" : "56", "answer2" : "54", "answer3" : "58", "answer4" : "52", "correctAnswer" : "54"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 16+46 είναι", "answer1" : "58", "answer2" : "62", "answer3" : "66", "answer4" : "72", "correctAnswer" : "62"
+    },
+    {
+      "question" : "Το υπόλοιπο του 10:15 είναι", "answer1" : "3", "answer2" : "5", "answer3" : "10", "answer4" : "-3", "correctAnswer" : "10"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 95-96 είναι", "answer1" : "1", "answer2" : "-1", "answer3" : "0", "answer4" : "11", "correctAnswer" : "-1"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 17-9 είναι", "answer1" : "7", "answer2" : "9", "answer3" : "8", "answer4" : "6", "correctAnswer" : "8"
+    },
+    {
+      "question" : "Το αποτέλεσμα του 24+45 είναι", "answer1" : "52", "answer2" : "61", "answer3" : "69", "answer4" : "59", "correctAnswer" : "69"
+    },
+    {
+      "question" : "Το πηλίκο του of 100:10 είναι", "answer1" : "1", "answer2" : "5", "answer3" : "10", "answer4" : "11", "correctAnswer" : "10"
+    },
+    {
+      "question" : "Το υπόλοιπο του 100:10 είναι", "answer1" : "1", "answer2" : "0", "answer3" : "10", "answer4" : "5", "correctAnswer" : "0"
+    }
+  ]
+}

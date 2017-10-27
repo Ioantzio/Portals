@@ -19,7 +19,7 @@ public class MainController
     public MainController(Context cont)
     {
         setContext(cont);
-        gameSession = new GameSession();
+        gameSession = new GameSession(this);
 
         dataController = new DataController();
         gameplayController = new GameplayController(this);

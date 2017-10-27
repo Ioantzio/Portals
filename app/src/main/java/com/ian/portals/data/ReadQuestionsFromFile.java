@@ -2,6 +2,7 @@ package com.ian.portals.data;
 
 import android.content.Context;
 
+import com.ian.portals.miscellaneous.RandomNumberGenerator;
 import com.ian.portals.models.Question;
 
 import org.json.JSONArray;
@@ -26,14 +27,14 @@ public class ReadQuestionsFromFile
         this.context = context;
     }
 
-    public String getJsonFromAsset()
+    public String getJsonFromAsset(String filename)
     {
         byte[] buffer;
         String json;
 
         try
         {
-            InputStream inputStream = context.getAssets().open("Questions.json");
+            InputStream inputStream = context.getAssets().open(filename + GlobalVariables.getLanguagePrefix() + ".json");
             buffer = new byte[inputStream.available()];
 
             //noinspection ResultOfMethodCallIgnored
@@ -56,7 +57,7 @@ public class ReadQuestionsFromFile
         JSONObject temp;
         try
         {
-            JSONObject jsonObject = new JSONObject(getJsonFromAsset());
+            JSONObject jsonObject = new JSONObject(getJsonFromAsset("Questions"));
             JSONArray jsonArray = jsonObject.getJSONArray("questions");
             questions = new ArrayList<>();
 
@@ -72,5 +73,29 @@ public class ReadQuestionsFromFile
         }
 
         return questions;
+    }
+
+    public Question getFinalQuestion()
+    {
+        JSONObject temp;
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        try
+        {
+            JSONObject jsonObject = new JSONObject(getJsonFromAsset("Questions_final"));
+            JSONArray jsonArray = jsonObject.getJSONArray("questions");
+            questions = new ArrayList<>();
+
+            for(int i = 0; i < jsonArray.length(); i++)
+            {
+                temp = jsonArray.getJSONObject(i);
+                questions.add(new Question(temp.getString("question"), temp.getString("answer1"), temp.getString("answer2"), temp.getString("answer3"), temp.getString("answer4"), temp.getString("correctAnswer")));
+            }
+        }
+        catch(JSONException e)
+        {
+            e.printStackTrace();
+        }
+
+        return questions.get(randomNumberGenerator.generateNumber(0, questions.size()-1, true));
     }
 }

@@ -51,7 +51,7 @@
     <string name="dice">Ζάρι</string>
 
     <!-- Miscellaneous -->
-    <string name="error_field_required">Απαραίτητο πεδίο</string>
+    <string name="ERROR_field_required">Απαραίτητο πεδίο</string>
     <string name="TODO_VsComputer">"Παίξε με τον υπολογιστή" δεν έχει υλοποιηθεί ακόμα</string>
     <string name="TODO_Update">"Ενημέρωση" δεν έχει υλοποιηθεί ακόμα</string>
     <string name="TODO_Connect">"Σύνδεση/εγγραφή" δεν έχει υλοποιηθεί ακόμα</string>

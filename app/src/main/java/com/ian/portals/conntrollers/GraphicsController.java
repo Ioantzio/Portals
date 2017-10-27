@@ -19,6 +19,7 @@ import com.ian.portals.models.Point;
  * Created by Ian.
  */
 
+@SuppressWarnings("deprecation")
 public class GraphicsController
 {
     //Variables: Controllers
@@ -55,7 +56,6 @@ public class GraphicsController
         imageSelector = new ImageSelector();
     }
 
-    @SuppressWarnings("deprecation")
     public Bitmap getMapToDraw()
     {
         Paint paint;
@@ -147,14 +147,6 @@ public class GraphicsController
                     avatar.setLastLocation(avatar.getLocation());
                     avatar.setLocation(new Point(tileMap[i][j].getWidth(), tileMap[i][j].getHeight()));
                 }
-
-                if(gameSession.getFreeTiles().contains(tileMap[i][j].getIndex()))
-                {
-                    canvas.drawText("*",
-                            tileMap[i][j].getWidth() + ((displayMetrics.getTileWidth() * 3) / 4),
-                            tileMap[i][j].getHeight() + (displayMetrics.getTileHeight() / 4),
-                            paint);
-                }
             }
         }
 
@@ -169,7 +161,6 @@ public class GraphicsController
         return bitmap;
     }
 
-    @SuppressWarnings("deprecation")
     public Bitmap getDiceToDraw()
     {
         Drawable drawable;

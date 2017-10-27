@@ -96,6 +96,7 @@ public class Game extends AppCompatActivity
                     Toast.makeText(this, R.string.TEXT_wrongAnswer, Toast.LENGTH_SHORT).show();
                     break;
                 case 0:
+                    mainController.getGameSession().getAvatar().setPosition(mainController.getDataController().getWidthTilesCount()*mainController.getDataController().getHeightTilesCount());
                     drawMap();
                     showVictoryScreen();
                     break;

@@ -6,19 +6,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioButton;
-import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.ian.portals.R;
-import com.ian.portals.data.Language;
 import com.ian.portals.data.GlobalVariables;
+import com.ian.portals.data.Language;
 
 import java.util.Locale;
 
 public class Settings extends AppCompatActivity
 {
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -26,7 +23,6 @@ public class Settings extends AppCompatActivity
         setContentView(R.layout.activity_settings);
 
         updateOptions();
-        answerTimeOnSeekBarChangeEvent(findViewById(R.id.answer_time_tracker));
     }
 
     /**
@@ -56,11 +52,6 @@ public class Settings extends AppCompatActivity
                 language.setChecked(true);
                 break;
         }
-
-        SeekBar answerTime = (SeekBar) findViewById(R.id.answer_time_tracker);
-        TextView answerTimeCurrent = (TextView) findViewById(R.id.answer_time_current);
-        answerTime.setProgress(GlobalVariables.getAnswerTimeForSeekbar());
-        answerTimeCurrent.setText(String.valueOf(GlobalVariables.getAnswerTime()));
     }
 
     public void musicOnClickEvent(View view)
@@ -78,12 +69,14 @@ public class Settings extends AppCompatActivity
     public void languageEnglishOnClickEvent(View view)
     {
         GlobalVariables.setLanguage(Language.english);
+        GlobalVariables.setLanguagePrefix("-en");
         updateLocale("en");
     }
 
     public void languageGreekOnClickEvent(View view)
     {
         GlobalVariables.setLanguage(Language.greek);
+        GlobalVariables.setLanguagePrefix("-el");
         updateLocale("el");
     }
 
@@ -95,35 +88,6 @@ public class Settings extends AppCompatActivity
 
         configuration.setLocale(locale);
         getResources().updateConfiguration(configuration, Resources.getSystem().getDisplayMetrics());
-    }
-
-    public void answerTimeOnSeekBarChangeEvent(View view)
-    {
-        SeekBar answerTime = (SeekBar) findViewById(R.id.answer_time_tracker);
-
-        answerTime.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener()
-        {
-            TextView answerTimeCurrent = (TextView) findViewById(R.id.answer_time_current);
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
-            {
-                GlobalVariables.setAnswerTimeFromSeekbar(progress);
-                answerTimeCurrent.setText(String.valueOf(GlobalVariables.getAnswerTime()));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar)
-            {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar)
-            {
-
-            }
-        });
     }
 
     public void backOnClickEvent(View view)

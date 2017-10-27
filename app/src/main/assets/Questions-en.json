@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "question" : "The result of 5x8 is", "answer1" : "10", "answer2" : "30", "answer3" : "40", "answer4" : "48", "correctAnswer" : "40"
+    },
+    {
+      "question" : "The result of 123-34 is", "answer1" : "89", "answer2" : "79", "answer3" : "81", "answer4" : "99", "correctAnswer" : "89"
+    },
+    {
+      "question" : "The result of 72:12 is", "answer1" : "6", "answer2" : "5", "answer3" : "7", "answer4" : "8", "correctAnswer" : "6"
+    },
+    {
+      "question" : "The result of 895-396 is", "answer1" : "399", "answer2" : "449", "answer3" : "499", "answer4" : "549", "correctAnswer" : "499"
+    },
+    {
+      "question" : "The result of 13+19 is", "answer1" : "28", "answer2" : "31", "answer3" : "32", "answer4" : "34", "correctAnswer" : "32"
+    },
+    {
+      "question" : "The result of 38-17 is", "answer1" : "16", "answer2" : "21", "answer3" : "22", "answer4" : "19", "correctAnswer" : "21"
+    },
+    {
+      "question" : "The remainder of 19:4 is", "answer1" : "1", "answer2" : "2", "answer3" : "3", "answer4" : "0", "correctAnswer" : "3"
+    },
+    {
+      "question" : "The quotient of 10:3 is", "answer1" : "0", "answer2" : "1", "answer3" : "2", "answer4" : "3", "correctAnswer" : "3"
+    },
+    {
+      "question" : "The result of 45+135 is", "answer1" : "180", "answer2" : "170", "answer3" : "160", "answer4" : "190", "correctAnswer" : "180"
+    },
+    {
+      "question" : "The result of 8x12 is", "answer1" : "88", "answer2" : "96", "answer3" : "98", "answer4" : "106", "correctAnswer" : "96"
+    },
+    {
+      "question" : "The result of 14+38 is", "answer1" : "52", "answer2" : "54", "answer3" : "56", "answer4" : "58", "correctAnswer" : "52"
+    },
+    {
+      "question" : "The result of 14x9 is", "answer1" : "116", "answer2" : "122", "answer3" : "126", "answer4" : "132", "correctAnswer" : "126"
+    },
+    {
+      "question" : "The result of 144:12 is", "answer1" : "6", "answer2" : "8", "answer3" : "10", "answer4" : "12", "correctAnswer" : "12"
+    },
+    {
+      "question" : "The result of 39+14 is", "answer1" : "43", "answer2" : "46", "answer3" : "49", "answer4" : "53", "correctAnswer" : "53"
+    },
+    {
+      "question" : "The quotient of 40:14 is", "answer1" : "3", "answer2" : "2", "answer3" : "4", "answer4" : "5", "correctAnswer" : "2"
+    },
+    {
+      "question" : "The result of 999-449 is", "answer1" : "400", "answer2" : "450", "answer3" : "500", "answer4" : "550", "correctAnswer" : "550"
+    },
+    {
+      "question" : "The result of 123+456 is", "answer1" : "499", "answer2" : "559", "answer3" : "579", "answer4" : "599", "correctAnswer" : "579"
+    },
+    {
+      "question" : "The result of 1.000:100 is", "answer1" : "1", "answer2" : "10", "answer3" : "11", "answer4" : "100", "correctAnswer" : "10"
+    },
+    {
+      "question" : "The result of 99+99-98 is", "answer1" : "100", "answer2" : "101", "answer3" : "198", "answer4" : "199", "correctAnswer" : "100"
+    },
+    {
+      "question" : "The quotient of 125:5 is", "answer1" : "20", "answer2" : "25", "answer3" : "35", "answer4" : "50", "correctAnswer" : "25"
+    },
+    {
+      "question" : "The remainder of 15:3 is", "answer1" : "0", "answer2" : "1", "answer3" : "2", "answer4" : "3", "correctAnswer" : "0"
+    },
+    {
+      "question" : "The quotient of 64:4 is", "answer1" : "8", "answer2" : "14", "answer3" : "16", "answer4" : "25", "correctAnswer" : "16"
+    },
+    {
+      "question" : "The result of 17-38 is", "answer1" : "-16", "answer2" : "-21", "answer3" : "-24", "answer4" : "-27", "correctAnswer" : "-21"
+    },
+    {
+      "question" : "The result of 39+62 is", "answer1" : "91", "answer2" : "92", "answer3" : "100", "answer4" : "101", "correctAnswer" : "101"
+    },
+    {
+      "question" : "The result of 11x8 is", "answer1" : "48", "answer2" : "80", "answer3" : "88", "answer4" : "98", "correctAnswer" : "88"
+    },
+    {
+      "question" : "The result of 55+55 is", "answer1" : "100", "answer2" : "105", "answer3" : "110", "answer4" : "125", "correctAnswer" : "110"
+    },
+    {
+      "question" : "The result of 10-3x2 is", "answer1" : "14", "answer2" : "24", "answer3" : "4", "answer4" : "6", "correctAnswer" : "4"
+    },
+    {
+      "question" : "The quotient of 25:4 is", "answer1" : "4", "answer2" : "6", "answer3" : "7", "answer4" : "8", "correctAnswer" : "6"
+    },
+    {
+      "question" : "The remainder of 22:5 is", "answer1" : "0", "answer2" : "2", "answer3" : "4", "answer4" : "5", "correctAnswer" : "2"
+    },
+    {
+      "question" : "The result of 96-37 is", "answer1" : "49", "answer2" : "59", "answer3" : "69", "answer4" : "71", "correctAnswer" : "59"
+    },
+    {
+      "question" : "The result of 9x9 is", "answer1" : "79", "answer2" : "81", "answer3" : "84", "answer4" : "89", "correctAnswer" : "81"
+    },
+    {
+      "question" : "The result of 12+23 is", "answer1" : "24", "answer2" : "31", "answer3" : "34", "answer4" : "35", "correctAnswer" : "35"
+    },
+    {
+      "question" : "The result of 23-12 is", "answer1" : "9", "answer2" : "10", "answer3" : "11", "answer4" : "12", "correctAnswer" : "11"
+    },
+    {
+      "question" : "The quotient of 28:9 is", "answer1" : "2", "answer2" : "3", "answer3" : "4", "answer4" : "5", "correctAnswer" : "3"
+    },
+    {
+      "question" : "The result of 6x6 is", "answer1" : "26", "answer2" : "30", "answer3" : "32", "answer4" : "36", "correctAnswer" : "36"
+    },
+    {
+      "question" : "The remainder of 33:6 is", "answer1" : "0", "answer2" : "1", "answer3" : "2", "answer4" : "3", "correctAnswer" : "3"
+    },
+    {
+      "question" : "The result of 16+22 is", "answer1" : "38", "answer2" : "44", "answer3" : "46", "answer4" : "52", "correctAnswer" : "38"
+    },
+    {
+      "question" : "The remainder of 49:7 is", "answer1" : "0", "answer2" : "1", "answer3" : "3", "answer4" : "4", "correctAnswer" : "0"
+    },
+    {
+      "question" : "The quotient of 100:100 is", "answer1" : "0", "answer2" : "1", "answer3" : "10", "answer4" : "11", "correctAnswer" : "1"
+    },
+    {
+      "question" : "The result of 10+101 is", "answer1" : "109", "answer2" : "110", "answer3" : "111", "answer4" : "121", "correctAnswer" : "111"
+    },
+    {
+      "question" : "The result of 27x2 is", "answer1" : "56", "answer2" : "54", "answer3" : "58", "answer4" : "52", "correctAnswer" : "54"
+    },
+    {
+      "question" : "The result of 16+46 is", "answer1" : "58", "answer2" : "62", "answer3" : "66", "answer4" : "72", "correctAnswer" : "62"
+    },
+    {
+      "question" : "The remainder of 10:15 is", "answer1" : "3", "answer2" : "5", "answer3" : "10", "answer4" : "-3", "correctAnswer" : "10"
+    },
+    {
+      "question" : "The result of 95-96 is", "answer1" : "1", "answer2" : "-1", "answer3" : "0", "answer4" : "11", "correctAnswer" : "-1"
+    },
+    {
+      "question" : "The result of 17-9 is", "answer1" : "7", "answer2" : "9", "answer3" : "8", "answer4" : "6", "correctAnswer" : "8"
+    },
+    {
+      "question" : "The result of 24+45 is", "answer1" : "52", "answer2" : "61", "answer3" : "69", "answer4" : "59", "correctAnswer" : "69"
+    },
+    {
+      "question" : "The quotient of 100:10 is", "answer1" : "1", "answer2" : "5", "answer3" : "10", "answer4" : "11", "correctAnswer" : "10"
+    },
+    {
+      "question" : "The remainder of 100:10 is", "answer1" : "1", "answer2" : "0", "answer3" : "10", "answer4" : "5", "correctAnswer" : "0"
+    }
+  ]
+}

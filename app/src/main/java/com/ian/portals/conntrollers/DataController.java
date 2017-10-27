@@ -6,7 +6,6 @@ package com.ian.portals.conntrollers;
 
 public class DataController
 {
-
     //Variables: Dice
     private static final int diceLowLimit = 1;
     private static final int diceHighLimit = 6;
