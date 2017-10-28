@@ -1,6 +1,8 @@
 package com.ian.portals.miscellaneous;
 
 import com.ian.portals.conntrollers.DataController;
+import com.ian.portals.data.GlobalVariables;
+import com.ian.portals.data.Tile;
 
 import java.util.ArrayList;
 
@@ -17,25 +19,50 @@ public class NonQuestionTiles
         dataController = new DataController();
     }
 
-    public ArrayList<Integer> getFreeTiles()
+    public void calculateFreeTiles()
     {
-
-        ArrayList<Integer> freeTiles = new ArrayList<>();
         int rand;
         int freeTile;
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
 
-        rand = randomNumberGenerator.generateNumber(1, dataController.getWidthTilesCount() - 1, false);
+        rand = randomNumberGenerator.generateNumber(2, dataController.getWidthTilesCount() - 1, false);
         freeTile = rand;
-        freeTiles.add(freeTile);
+        GlobalVariables.getTileTypes().put(freeTile, Tile.free);
 
-        for(int count = 1; count < dataController.getHeightTilesCount(); count++)
+        for(int count = 1; count < dataController.getHeightTilesCount() - 1; count++)
         {
-            rand = randomNumberGenerator.generateNumber(1, dataController.getWidthTilesCount(), false);
-            freeTile = count*dataController.getWidthTilesCount() + rand;
-            freeTiles.add(freeTile);
+            do
+            {
+                rand = randomNumberGenerator.generateNumber(1, dataController.getWidthTilesCount(), false);
+                freeTile = count * dataController.getWidthTilesCount() + rand;
+            }
+            while(GlobalVariables.getTileTypes().get(freeTile) != Tile.normal);
+            GlobalVariables.getTileTypes().put(freeTile, Tile.free);
         }
+    }
 
-        return freeTiles;
+    public void calculatePortalTiles()
+    {
+        ArrayList<Integer> portalTilesList = new ArrayList<>();
+        int rand;
+        int portalTile;
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+
+        rand = randomNumberGenerator.generateNumber(2, dataController.getWidthTilesCount() - 1, false);
+        portalTile = rand;
+        GlobalVariables.getTileTypes().put(portalTile, Tile.portal);
+
+        for(int count = 1; count < dataController.getHeightTilesCount() - 1; count++)
+        {
+            do
+            {
+                rand = randomNumberGenerator.generateNumber(1, dataController.getWidthTilesCount(), false);
+                portalTile = count * dataController.getWidthTilesCount() + rand;
+            }
+            while(GlobalVariables.getTileTypes().get(portalTile) != Tile.normal);
+            GlobalVariables.getTileTypes().put(portalTile, Tile.portal);
+            portalTilesList.add(portalTile);
+        }
+        GlobalVariables.setPortalTilesList(portalTilesList);
     }
 }

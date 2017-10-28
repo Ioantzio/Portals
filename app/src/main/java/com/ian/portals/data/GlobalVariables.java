@@ -2,6 +2,9 @@ package com.ian.portals.data;
 
 import com.ian.portals.models.Question;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * Created by Ian.
  */
@@ -24,36 +27,31 @@ public class GlobalVariables
     private static Question currentQuestion;
     private static String answer;
 
+    //Variables: Tiles
+    private static HashMap<Integer, Tile> tileTypes = new HashMap<>();
+    private static ArrayList<Integer> portalTilesList = new ArrayList<>();
+
     //Methods: Settings
     public static boolean isMusicActivated()
     {
         return musicActivated;
     }
 
-    public static void setMusicActivated(boolean musicActivated)
-    {
-        GlobalVariables.musicActivated = musicActivated;
-    }
+    public static void setMusicActivated(boolean musicActivated) {GlobalVariables.musicActivated = musicActivated;}
 
     public static boolean isSoundsActivated()
     {
         return soundsActivated;
     }
 
-    public static void setSoundsActivated(boolean soundsActivated)
-    {
-        GlobalVariables.soundsActivated = soundsActivated;
-    }
+    public static void setSoundsActivated(boolean soundsActivated) {GlobalVariables.soundsActivated = soundsActivated;}
 
     public static String getLanguagePrefix()
     {
         return languagePrefix;
     }
 
-    public static void setLanguagePrefix(String languagePrefix)
-    {
-        GlobalVariables.languagePrefix = languagePrefix;
-    }
+    public static void setLanguagePrefix(String languagePrefix) {GlobalVariables.languagePrefix = languagePrefix;}
 
     public static Language getLanguage()
     {
@@ -116,10 +114,7 @@ public class GlobalVariables
         return (answerTime - 5);
     }
 
-    public static void setAnswerTimeFromSeekbar(int answerTime)
-    {
-        GlobalVariables.answerTime = answerTime + 5;
-    }
+    public static void setAnswerTimeFromSeekbar(int answerTime) {GlobalVariables.answerTime = answerTime + 5;}
 
     //Methods: Questions
     public static Question getCurrentQuestion()
@@ -127,10 +122,7 @@ public class GlobalVariables
         return currentQuestion;
     }
 
-    public static void setCurrentQuestion(Question currentQuestion)
-    {
-        GlobalVariables.currentQuestion = currentQuestion;
-    }
+    public static void setCurrentQuestion(Question currentQuestion) {GlobalVariables.currentQuestion = currentQuestion;}
 
     public static String getAnswer()
     {
@@ -141,4 +133,18 @@ public class GlobalVariables
     {
         GlobalVariables.answer = answer;
     }
+
+    public static HashMap<Integer, Tile> getTileTypes()
+    {
+        return tileTypes;
+    }
+
+    public static void setTileTypes(HashMap<Integer, Tile> tileTypes) {GlobalVariables.tileTypes = tileTypes;}
+
+    public static ArrayList<Integer> getPortalTilesList()
+    {
+        return portalTilesList;
+    }
+
+    public static void setPortalTilesList(ArrayList<Integer> portalTilesList) {GlobalVariables.portalTilesList = portalTilesList;}
 }

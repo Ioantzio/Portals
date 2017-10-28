@@ -3,8 +3,6 @@ package com.ian.portals.data;
 import android.content.Context;
 
 import com.ian.portals.conntrollers.MainController;
-import com.ian.portals.miscellaneous.NonQuestionTiles;
-import com.ian.portals.mock.MockQuestions;
 import com.ian.portals.models.Avatar;
 import com.ian.portals.models.Question;
 
@@ -23,9 +21,8 @@ public class GameSession
     private ArrayList<Question> questions;
 
     //Variables: Tiles
-    private NonQuestionTiles nonQuestionTiles;
     private boolean isOnFreeTile;
-    private ArrayList<Integer> freeTiles;
+    private boolean isOnPortalTile;
 
     //Variables: Player
     private Avatar avatar;
@@ -43,8 +40,7 @@ public class GameSession
     {
         readQuestionsFromFile = new ReadQuestionsFromFile(context);
         questions = readQuestionsFromFile.getQuestions();
-        nonQuestionTiles = new NonQuestionTiles();
-        freeTiles = nonQuestionTiles.getFreeTiles();
+
         avatar = new Avatar();
         diceRoll = 1;
         isOnFreeTile = false;
@@ -69,11 +65,6 @@ public class GameSession
     }
 
     //Methods: Tiles
-    public ArrayList<Integer> getFreeTiles()
-    {
-        return freeTiles;
-    }
-
     public boolean isOnFreeTile()
     {
         return isOnFreeTile;
@@ -83,6 +74,10 @@ public class GameSession
     {
         isOnFreeTile = onFreeTile;
     }
+
+    public boolean isOnPortalTile(){return isOnPortalTile;}
+
+    public void setOnPortalTile(boolean onPortalTile){isOnPortalTile = onPortalTile;}
 
     //Methods: Player
     public Avatar getAvatar()

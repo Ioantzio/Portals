@@ -2,6 +2,8 @@ package com.ian.portals.miscellaneous;
 
 import android.content.res.Resources;
 
+import com.ian.portals.data.GlobalVariables;
+import com.ian.portals.data.Tile;
 import com.ian.portals.models.Point;
 
 /**
@@ -160,6 +162,7 @@ public class DisplayMetrics
                 {
                     mTileCoordinates[getWidthTilesCount()-i-1][j-1].setIndex(tileCount);
                 }
+                GlobalVariables.getTileTypes().put(tileCount, Tile.normal);
                 tileCount++;
             }
         }

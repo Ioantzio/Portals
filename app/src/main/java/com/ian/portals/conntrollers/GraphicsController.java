@@ -10,8 +10,11 @@ import android.os.Build;
 
 import com.ian.portals.R;
 import com.ian.portals.data.GameSession;
+import com.ian.portals.data.GlobalVariables;
+import com.ian.portals.data.Tile;
 import com.ian.portals.miscellaneous.DisplayMetrics;
 import com.ian.portals.miscellaneous.ImageSelector;
+import com.ian.portals.miscellaneous.NonQuestionTiles;
 import com.ian.portals.models.Avatar;
 import com.ian.portals.models.Point;
 
@@ -32,6 +35,7 @@ public class GraphicsController
     //Variables for map creation
     private DisplayMetrics displayMetrics;
     private Point[][] tileMap;
+    private NonQuestionTiles nonQuestionTiles;
 
     //Variables for component's images
     private ImageSelector imageSelector;
@@ -53,6 +57,10 @@ public class GraphicsController
         displayMetrics = new DisplayMetrics(dataController.getWidthTilesCount(), dataController.getHeightTilesCount());
         tileMap = displayMetrics.getTileCoordinates();
 
+        nonQuestionTiles = new NonQuestionTiles();
+        nonQuestionTiles.calculateFreeTiles();
+        nonQuestionTiles.calculatePortalTiles();
+
         imageSelector = new ImageSelector();
     }
 
@@ -62,7 +70,7 @@ public class GraphicsController
         Bitmap bitmap;
         Canvas canvas;
         Drawable player;
-        Drawable tileBlue, tileGreen, tileBlueFree, tileGreenFree;
+        Drawable tileBlue, tileGreen, tileBlueFree, tileGreenFree, tileBluePortal, tileGreenPortal;
 
         bitmap = Bitmap.createBitmap(displayMetrics.getDisplayWidth(), displayMetrics.getDisplayHeight(), Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap);
@@ -77,6 +85,8 @@ public class GraphicsController
             tileGreen = context.getResources().getDrawable(R.drawable.tile_green, null);
             tileBlueFree = context.getResources().getDrawable(R.drawable.tile_blue_free, null);
             tileGreenFree = context.getResources().getDrawable(R.drawable.tile_green_free, null);
+            tileBluePortal = context.getResources().getDrawable(R.drawable.tile_blue_portal, null);
+            tileGreenPortal = context.getResources().getDrawable(R.drawable.tile_green_portal, null);
             player = context.getResources().getDrawable(R.drawable.player_cyan, null);
         }
         else
@@ -85,6 +95,8 @@ public class GraphicsController
             tileGreen = context.getResources().getDrawable(R.drawable.tile_green);
             tileBlueFree = context.getResources().getDrawable(R.drawable.tile_blue_free);
             tileGreenFree = context.getResources().getDrawable(R.drawable.tile_green_free);
+            tileBluePortal = context.getResources().getDrawable(R.drawable.tile_blue_portal);
+            tileGreenPortal = context.getResources().getDrawable(R.drawable.tile_green_portal);
             player = context.getResources().getDrawable(R.drawable.player_cyan);
         }
 
@@ -95,7 +107,7 @@ public class GraphicsController
             {
                 if(tileMap[i][j].getIndex()%2 == 0)
                 {
-                    if(gameSession.getFreeTiles().contains(tileMap[i][j].getIndex()))
+                    if(GlobalVariables.getTileTypes().get(tileMap[i][j].getIndex()).getTile().equals(Tile.free.getTile()))
                     {
                         tileGreenFree.setBounds(
                                 tileMap[i][j].getWidth(),
@@ -103,6 +115,15 @@ public class GraphicsController
                                 tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
                                 tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
                         tileGreenFree.draw(canvas);
+                    }
+                    else if(GlobalVariables.getTileTypes().get(tileMap[i][j].getIndex()).getTile().equals(Tile.portal.getTile()))
+                    {
+                        tileGreenPortal.setBounds(
+                                tileMap[i][j].getWidth(),
+                                tileMap[i][j].getHeight(),
+                                tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
+                                tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
+                        tileGreenPortal.draw(canvas);
                     }
                     else
                     {
@@ -116,7 +137,7 @@ public class GraphicsController
                 }
                 else
                 {
-                    if(gameSession.getFreeTiles().contains(tileMap[i][j].getIndex()))
+                    if(GlobalVariables.getTileTypes().get(tileMap[i][j].getIndex()).getTile().equals(Tile.free.getTile()))
                     {
                         tileBlueFree.setBounds(
                                 tileMap[i][j].getWidth(),
@@ -124,6 +145,15 @@ public class GraphicsController
                                 tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
                                 tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
                         tileBlueFree.draw(canvas);
+                    }
+                    else if(GlobalVariables.getTileTypes().get(tileMap[i][j].getIndex()).getTile().equals(Tile.portal.getTile()))
+                    {
+                        tileBluePortal.setBounds(
+                                tileMap[i][j].getWidth(),
+                                tileMap[i][j].getHeight(),
+                                tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
+                                tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
+                        tileBluePortal.draw(canvas);
                     }
                     else
                     {

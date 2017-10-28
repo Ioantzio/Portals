@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import com.ian.portals.R;
 import com.ian.portals.conntrollers.MainController;
+import com.ian.portals.data.GlobalVariables;
+import com.ian.portals.miscellaneous.RandomNumberGenerator;
 
 public class Game extends AppCompatActivity
 {
@@ -102,6 +104,18 @@ public class Game extends AppCompatActivity
                     break;
                 case 1:
                     Toast.makeText(this, R.string.TEXT_correctAnswer, Toast.LENGTH_SHORT).show();
+                    if(mainController.getGameSession().isOnPortalTile())
+                    {
+                        int portalTile;
+                        do
+                        {
+                            portalTile = GlobalVariables.getPortalTilesList().get(new RandomNumberGenerator().generateNumber(0, GlobalVariables.getPortalTilesList().size(), true));
+                        }
+                        while(portalTile == mainController.getGameSession().getAvatar().getPosition() + mainController.getGameSession().getDiceRoll());
+
+                        mainController.getGameSession().getAvatar().setPosition(portalTile);
+                        mainController.getGameSession().setOnPortalTile(false);
+                    }
                     drawMap();
                     break;
                 default:

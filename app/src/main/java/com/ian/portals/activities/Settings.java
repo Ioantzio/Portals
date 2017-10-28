@@ -11,6 +11,7 @@ import android.widget.ToggleButton;
 import com.ian.portals.R;
 import com.ian.portals.data.GlobalVariables;
 import com.ian.portals.data.Language;
+import com.ian.portals.data.LanguagePrefix;
 
 import java.util.Locale;
 
@@ -69,15 +70,15 @@ public class Settings extends AppCompatActivity
     public void languageEnglishOnClickEvent(View view)
     {
         GlobalVariables.setLanguage(Language.english);
-        GlobalVariables.setLanguagePrefix("-en");
-        updateLocale("en");
+        GlobalVariables.setLanguagePrefix(LanguagePrefix.english.getLanguagePrefix());
+        updateLocale(LanguagePrefix.english.getLanguagePrefix());
     }
 
     public void languageGreekOnClickEvent(View view)
     {
         GlobalVariables.setLanguage(Language.greek);
-        GlobalVariables.setLanguagePrefix("-el");
-        updateLocale("el");
+        GlobalVariables.setLanguagePrefix(LanguagePrefix.greek.getLanguagePrefix());
+        updateLocale(LanguagePrefix.greek.getLanguagePrefix());
     }
 
     @SuppressWarnings("deprecation")

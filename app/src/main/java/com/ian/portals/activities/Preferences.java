@@ -14,7 +14,9 @@ import com.ian.portals.data.GlobalVariables;
 
 public class Preferences extends AppCompatActivity
 {
+    Spinner category;
     ArrayAdapter<CharSequence> categoryAdapter;
+    Spinner grade;
     ArrayAdapter<CharSequence> gradeAdapter;
 
     @Override
@@ -30,7 +32,7 @@ public class Preferences extends AppCompatActivity
 
     private void initializeVariables()
     {
-        Spinner category = (Spinner) findViewById(R.id.category);
+        category = (Spinner) findViewById(R.id.category);
         categoryAdapter = ArrayAdapter.createFromResource(this, R.array.categories, android.R.layout.simple_spinner_item);
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         category.setAdapter(categoryAdapter);
@@ -49,7 +51,7 @@ public class Preferences extends AppCompatActivity
             }
         });
 
-        Spinner grade = (Spinner) findViewById(R.id.grade);
+        grade = (Spinner) findViewById(R.id.grade);
         gradeAdapter = ArrayAdapter.createFromResource(this, R.array.grades, android.R.layout.simple_spinner_item);
         gradeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         grade.setAdapter(gradeAdapter);

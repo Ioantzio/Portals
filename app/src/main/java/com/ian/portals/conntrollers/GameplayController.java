@@ -2,6 +2,7 @@ package com.ian.portals.conntrollers;
 
 import com.ian.portals.data.GameSession;
 import com.ian.portals.data.GlobalVariables;
+import com.ian.portals.data.Tile;
 import com.ian.portals.miscellaneous.RandomNumberGenerator;
 
 /**
@@ -27,10 +28,15 @@ public class GameplayController
         diceRoll = rollDice();
         gameSession.setDiceRoll(diceRoll);
 
-        if(gameSession.getFreeTiles().contains(gameSession.getAvatar().getPosition() + diceRoll))
+        if(GlobalVariables.getTileTypes().get(gameSession.getAvatar().getPosition() + diceRoll) == Tile.free)
         {
             gameSession.setOnFreeTile(true);
             gameSession.getAvatar().move(diceRoll);
+        }
+        else if(GlobalVariables.getTileTypes().get(gameSession.getAvatar().getPosition() + diceRoll) == Tile.portal)
+        {
+            gameSession.setOnPortalTile(true);
+            setQuestion(diceRoll);
         }
         else
         {
@@ -50,7 +56,7 @@ public class GameplayController
 
     private void setQuestion(int steps)
     {
-        isFinalQuestion = (gameSession.getAvatar().getPosition()) >= (dataController.getWidthTilesCount() * dataController.getHeightTilesCount()) - 6;
+        isFinalQuestion = (gameSession.getAvatar().getPosition()) >= ((dataController.getWidthTilesCount() * dataController.getHeightTilesCount()) - dataController.getWidthTilesCount() + 1);
 
         if(isFinalQuestion)
         {
