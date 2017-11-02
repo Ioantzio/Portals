@@ -34,7 +34,7 @@ public class ReadQuestionsFromFile
 
         try
         {
-            InputStream inputStream = context.getAssets().open(filename + GlobalVariables.getLanguagePrefix() + ".json");
+            InputStream inputStream = context.getAssets().open(filename + "-" + GlobalVariables.getLanguagePrefix() + ".json");
             buffer = new byte[inputStream.available()];
 
             //noinspection ResultOfMethodCallIgnored

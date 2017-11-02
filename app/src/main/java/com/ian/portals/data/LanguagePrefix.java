@@ -6,8 +6,8 @@ package com.ian.portals.data;
 
 public enum LanguagePrefix
 {
-    english("-en"),
-    greek("-el");
+    english("en"),
+    greek("el");
 
     private final String languagePrefix;
 

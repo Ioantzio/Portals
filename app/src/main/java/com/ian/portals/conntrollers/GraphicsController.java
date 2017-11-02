@@ -70,7 +70,7 @@ public class GraphicsController
         Bitmap bitmap;
         Canvas canvas;
         Drawable player;
-        Drawable tileBlue, tileGreen, tileBlueFree, tileGreenFree, tileBluePortal, tileGreenPortal;
+        Drawable tileBlue, tileGreen, tileFree, tileBlueFree, tileGreenFree, tileBluePortal, tileGreenPortal;
 
         bitmap = Bitmap.createBitmap(displayMetrics.getDisplayWidth(), displayMetrics.getDisplayHeight(), Bitmap.Config.ARGB_8888);
         canvas = new Canvas(bitmap);
@@ -83,6 +83,7 @@ public class GraphicsController
         {
             tileBlue = context.getResources().getDrawable(R.drawable.tile_blue, null);
             tileGreen = context.getResources().getDrawable(R.drawable.tile_green, null);
+            tileFree = context.getResources().getDrawable(R.drawable.tile_free, null);
             tileBlueFree = context.getResources().getDrawable(R.drawable.tile_blue_free, null);
             tileGreenFree = context.getResources().getDrawable(R.drawable.tile_green_free, null);
             tileBluePortal = context.getResources().getDrawable(R.drawable.tile_blue_portal, null);
@@ -93,6 +94,7 @@ public class GraphicsController
         {
             tileBlue = context.getResources().getDrawable(R.drawable.tile_blue);
             tileGreen = context.getResources().getDrawable(R.drawable.tile_green);
+            tileFree = context.getResources().getDrawable(R.drawable.tile_free);
             tileBlueFree = context.getResources().getDrawable(R.drawable.tile_blue_free);
             tileGreenFree = context.getResources().getDrawable(R.drawable.tile_green_free);
             tileBluePortal = context.getResources().getDrawable(R.drawable.tile_blue_portal);
@@ -109,12 +111,12 @@ public class GraphicsController
                 {
                     if(GlobalVariables.getTileTypes().get(tileMap[i][j].getIndex()).getTile().equals(Tile.free.getTile()))
                     {
-                        tileGreenFree.setBounds(
+                        tileFree.setBounds(
                                 tileMap[i][j].getWidth(),
                                 tileMap[i][j].getHeight(),
                                 tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
                                 tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
-                        tileGreenFree.draw(canvas);
+                        tileFree.draw(canvas);
                     }
                     else if(GlobalVariables.getTileTypes().get(tileMap[i][j].getIndex()).getTile().equals(Tile.portal.getTile()))
                     {
@@ -139,12 +141,12 @@ public class GraphicsController
                 {
                     if(GlobalVariables.getTileTypes().get(tileMap[i][j].getIndex()).getTile().equals(Tile.free.getTile()))
                     {
-                        tileBlueFree.setBounds(
+                        tileFree.setBounds(
                                 tileMap[i][j].getWidth(),
                                 tileMap[i][j].getHeight(),
                                 tileMap[i][j].getWidth() + displayMetrics.getTileWidth(),
                                 tileMap[i][j].getHeight() + displayMetrics.getTileHeight());
-                        tileBlueFree.draw(canvas);
+                        tileFree.draw(canvas);
                     }
                     else if(GlobalVariables.getTileTypes().get(tileMap[i][j].getIndex()).getTile().equals(Tile.portal.getTile()))
                     {
