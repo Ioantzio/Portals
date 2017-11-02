@@ -31,6 +31,12 @@ public class GlobalVariables
     private static HashMap<Integer, Tile> tileTypes = new HashMap<>();
     private static ArrayList<Integer> portalTilesList = new ArrayList<>();
 
+    //Variables: Statistics
+    private static int numberOfQuestions = 0;
+    private static int numberOfCorrectAnswers = 0;
+    private static int numberOfPortalsUsed = 0;
+    private static int numberOfFreeTilesStepped;
+
     //Methods: Settings
     public static boolean isMusicActivated()
     {
@@ -147,4 +153,21 @@ public class GlobalVariables
     }
 
     public static void setPortalTilesList(ArrayList<Integer> portalTilesList) {GlobalVariables.portalTilesList = portalTilesList;}
+
+    //Methods: Statistics
+    public static int getNumberOfQuestions(){return numberOfQuestions;}
+
+    public static void setNumberOfQuestions(int numberOfQuestions) {GlobalVariables.numberOfQuestions = numberOfQuestions;}
+
+    public static int getNumberOfCorrectAnswers() {return numberOfCorrectAnswers;}
+
+    public static void setNumberOfCorrectAnswers(int numberOfCorrectAnswers) {GlobalVariables.numberOfCorrectAnswers = numberOfCorrectAnswers;}
+
+    public static int getNumberOfPortalsUsed() {return numberOfPortalsUsed;}
+
+    public static void setNumberOfPortalsUsed(int numberOfPortalsUsed) {GlobalVariables.numberOfPortalsUsed = numberOfPortalsUsed;}
+
+    public static int getNumberOfFreeTilesStepped() {return numberOfFreeTilesStepped;}
+
+    public static void setNumberOfFreeTilesStepped(int numberOfFreeTilesStepped) {GlobalVariables.numberOfFreeTilesStepped = numberOfFreeTilesStepped;}
 }

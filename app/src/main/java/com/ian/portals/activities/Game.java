@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.ian.portals.R;
 import com.ian.portals.conntrollers.MainController;
 import com.ian.portals.data.GlobalVariables;
+import com.ian.portals.data.Tile;
 import com.ian.portals.miscellaneous.RandomNumberGenerator;
 
 public class Game extends AppCompatActivity
@@ -81,7 +82,7 @@ public class Game extends AppCompatActivity
 
     private void showVictoryScreen()
     {
-        Toast.makeText(this, R.string.TEXT_victory, Toast.LENGTH_LONG).show();
+        startActivity(new Intent(Game.this, VictoryScreen.class));
         finish();
     }
 
@@ -91,6 +92,7 @@ public class Game extends AppCompatActivity
         if(requestCode == REQUEST_CODE_OK && resultCode == RESULT_OK)
         {
             int result = mainController.getGameplayController().checkAnswer();
+            mainController.getGameSession().increaseNumberOfQuestions();
 
             switch(result)
             {
@@ -98,14 +100,17 @@ public class Game extends AppCompatActivity
                     Toast.makeText(this, R.string.TEXT_wrongAnswer, Toast.LENGTH_SHORT).show();
                     break;
                 case 0:
+                    mainController.getGameSession().increaseNumberOfCorrectAnswers();
                     mainController.getGameSession().getAvatar().setPosition(mainController.getDataController().getWidthTilesCount()*mainController.getDataController().getHeightTilesCount());
                     drawMap();
                     showVictoryScreen();
                     break;
                 case 1:
+                    mainController.getGameSession().increaseNumberOfCorrectAnswers();
                     Toast.makeText(this, R.string.TEXT_correctAnswer, Toast.LENGTH_SHORT).show();
                     if(mainController.getGameSession().isOnPortalTile())
                     {
+                        mainController.getGameSession().increaseNumberOfPortalsUsed();
                         int portalTile;
                         do
                         {
@@ -133,11 +138,17 @@ public class Game extends AppCompatActivity
         if(mainController.getGameSession().isOnFreeTile())
         {
             Toast.makeText(this, R.string.TEXT_freeTile, Toast.LENGTH_SHORT).show();
+
+            mainController.getGameSession().increaseNumberOfFreeTilesStepped();
             mainController.getGameSession().setOnFreeTile(false);
             drawMap();
         }
         else
         {
+            if(GlobalVariables.getTileTypes().get(mainController.getGameSession().getAvatar().getPosition() + mainController.getGameSession().getDiceRoll()) == Tile.portal)
+            {
+                Toast.makeText(this, R.string.TEXT_portal, Toast.LENGTH_LONG).show();
+            }
             startActivityForResult(new Intent(Game.this, QuestionDialog.class), REQUEST_CODE_OK);
         }
     }

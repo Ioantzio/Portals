@@ -46,6 +46,15 @@ public class GameSession
         isOnFreeTile = false;
 
         randomizeQuestionOrder();
+        initializeStatistics();
+    }
+
+    private void initializeStatistics()
+    {
+        GlobalVariables.setNumberOfQuestions(0);
+        GlobalVariables.setNumberOfCorrectAnswers(0);
+        GlobalVariables.setNumberOfPortalsUsed(0);
+        GlobalVariables.setNumberOfFreeTilesStepped(0);
     }
 
     //Methods: Questions
@@ -110,4 +119,13 @@ public class GameSession
     {
         this.playerTurn = playerTurn;
     }
+
+    //Methods: Statistics
+    public void increaseNumberOfQuestions() {GlobalVariables.setNumberOfQuestions(GlobalVariables.getNumberOfQuestions() + 1);}
+
+    public void increaseNumberOfCorrectAnswers() {GlobalVariables.setNumberOfCorrectAnswers(GlobalVariables.getNumberOfCorrectAnswers() + 1);}
+
+    public void increaseNumberOfPortalsUsed() {GlobalVariables.setNumberOfPortalsUsed(GlobalVariables.getNumberOfPortalsUsed() + 1);}
+
+    public void increaseNumberOfFreeTilesStepped() {GlobalVariables.setNumberOfFreeTilesStepped(GlobalVariables.getNumberOfFreeTilesStepped() + 1);}
 }

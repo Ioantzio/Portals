@@ -50,6 +50,13 @@
     <string name="avatar">Avatar</string>
     <string name="dice">Dice</string>
 
+    <!-- Victory Screen -->
+    <string name="question">No. questions:</string>
+    <string name="answer">No. correct answers:</string>
+    <string name="portal">No. portals taken:</string>
+    <string name="free_tile">No. free tiles stepped:</string>
+    <string name="returnToMainMenu">Return to Main Menu</string>
+
     <!-- Miscellaneous -->
     <string name="ERROR_field_required">This field is required</string>
     <string name="ERROR_backPressedOnQuestionDialog">You haven\'t answered yet</string>
@@ -61,4 +68,5 @@
     <string name="TEXT_correctAnswer">You answered correct!!</string>
     <string name="TEXT_wrongAnswer">You answered wrong!!</string>
     <string name="TEXT_freeTile">Hooray!! No questions on this tile!!</string>
+    <string name="TEXT_portal">You will go through a portal on your next question</string>
 </resources>

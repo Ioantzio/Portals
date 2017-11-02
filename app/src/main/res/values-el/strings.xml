@@ -50,6 +50,13 @@
     <string name="avatar">Παίκτης</string>
     <string name="dice">Ζάρι</string>
 
+    <!-- Victory Screen -->
+    <string name="question">Αρ. ερωτήσεων:</string>
+    <string name="answer">Αρ. σωστών απαντήσεων:</string>
+    <string name="portal">Αρ. πυλών:</string>
+    <string name="free_tile">Αρ. ελεύθερων κουτιών:</string>
+    <string name="returnToMainMenu">Επιστροφή στο κεντρικό μενού</string>
+
     <!-- Miscellaneous -->
     <string name="ERROR_field_required">Απαραίτητο πεδίο</string>
     <string name="TODO_VsComputer">"Παίξε με τον υπολογιστή" δεν έχει υλοποιηθεί ακόμα</string>
@@ -60,4 +67,5 @@
     <string name="TEXT_correctAnswer">Απαντήσατε σωστά!!</string>
     <string name="TEXT_wrongAnswer">Απαντήσατε λάθος!!</string>
     <string name="TEXT_freeTile">Σούπερ!! Δεν υπάρχει ερώτηση σε αυτό το κουτάκι!!</string>
+    <string name="TEXT_portal">Θα περάσεις από μία πύλη στην επόμενη ερώτηση σου</string>
 </resources>
